@@ -10,14 +10,14 @@ package gloskampen.model;
  * This class is responsible for a user
  * @author lotta
  */
-public class MoUser {
+public class User {
     private final String userName;
     
     /**
      * Constructor for a new user
      * @param user The name of the user
      */
-    public MoUser(String user) {
+    public User(String user) {
         userName = user;
     }
 }

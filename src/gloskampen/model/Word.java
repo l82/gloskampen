@@ -10,7 +10,7 @@ package gloskampen.model;
  * This class is responsible for a certain word between two certain languages
  * @author Fredrik Johansson
  */
-public class MoWord 
+public class Word 
 {    
     private String language1;
     private String language2;
@@ -19,8 +19,11 @@ public class MoWord
     private String tempWord; // changeMe
     
     
-    public MoWord()
+    public Word(String fromLanguage, String toLanguage, Integer inDifficulty)
     {
+        language1 = fromLanguage;
+        language2 = toLanguage;
+        difficulty = inDifficulty;
         
     }
     

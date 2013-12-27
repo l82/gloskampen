@@ -6,37 +6,78 @@
 
 package gloskampen.control;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  * This class is responsible for handling the control part of a glossary quiz.
  * @author lotta
  */
-public class CoGlossary {
+public class GlossaryController {
+    
     private int numberOfExecutedGlossaries;
     private int numberOfFailedGlossaries;
     private int numberOfTrialsEachTest;
     private int currentNumberOfTrials;
     private String currentRightAnswer;
     private final int totNumberOfGlossaries;
+    private gloskampen.model.Glossary glossary;
+    
     
     /**
      * Constructor that makes a new quiz
+     * @param mainView Handle to main view object
      * @param totNumWordsInTest Total number of words in a test
+     * @param wordList Handle to word list object
      */
-    public CoGlossary(int totNumWordsInTest) {
+    public GlossaryController(gloskampen.view.MainView mainView, 
+            int totNumWordsInTest)  {
+        
         totNumberOfGlossaries = totNumWordsInTest;
         numberOfFailedGlossaries = 0;
         numberOfExecutedGlossaries = 0;
-        numberOfTrialsEachTest = 0;
+        numberOfTrialsEachTest = 0;            
     }
-
+    
+    /**
+     * Initiates the actionListeners for the glossary test parts for the pro-
+     * gramme
+     * @param mainView 
+     */
+    public void intiateGlossaryControlerGame(gloskampen.view.MainView mainView)  
+    {
+        
+        mainView.initiateButton.addActionListener(new ActionListener() {
+                
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                
+            }
+        }); 
+        
+        mainView.nextButton.addActionListener(new ActionListener() {
+                
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                String newGlossary;
+                newGlossary = getNewGlossary();
+            }
+        }); 
+        
+        System.out.println("L8 to generate a glossary object");
+        glossary = new gloskampen.model.Glossary();
+    }
+    
     /**
      * Asks for a new word from the glossary model object. If already reached 
      * totNumberOfglossaries one of the failed is returned instead
      * @return The word to be translated
      */
     public String getNewGlossary() {
-        String glossary;
-        glossary = "";
+        String word;
+        word = "";
         
         //TODO: Check for failed array if numberOfExecutedGlossaries are done.
         //TODO: Check if currentNumberOfTrials is less than numberOfTrialsEachTest:
@@ -45,8 +86,14 @@ public class CoGlossary {
         
         //TODO: Get glossary and the answer from model. Store the correct answer
         //in currentRightAnswer
+        word = glossary.randomiseOneGlossary();
         
-        return glossary;
+        return word;
+    }
+    
+    public void setWordList(gloskampen.model.WordList tobeWordList) {
+        System.out.println("In controller set wordList");
+        glossary.setWordList(tobeWordList);
     }
     
     /**

@@ -10,14 +10,14 @@ package gloskampen.model;
  * This class is responsible for handling the result for a certain quiz
  * @author Fredrik Johansson
  */
-public class MoResult
+public class Result
 {    
     private Integer result;
     private String user;
     private Integer level;
            
     
-    public MoResult()
+    public Result()
     {
         
     }        

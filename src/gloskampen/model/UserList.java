@@ -12,9 +12,9 @@ import java.util.ArrayList;
  * users from the list
  * @author lotta
  */
-public class MoUserList {
+public class UserList {
     
-    ArrayList<MoUser> userList;
+    ArrayList<User> userList;
     
     /**
      * Checks if a certain user exists in database or not. The user is case in-
@@ -33,13 +33,13 @@ public class MoUserList {
      * @param user The name of the user to add
      */
     public void checkAndAddUser(String user) {
-        MoUser newUser;
+        User newUser;
         Boolean userExists;
         
         userExists = checkIfUserExists(user);
         
         if (userExists == false) {
-            newUser = new MoUser(user);
+            newUser = new User(user);
             userList.add(newUser);
         }
     } 

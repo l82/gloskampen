@@ -12,13 +12,13 @@ import java.util.ArrayList;
  * This class is responsible for handling all the results for all tests
  * @author Fredrik Johansson
  */
-public class MoResultList
+public class ResultList
 {    
     private ArrayList resultList;
     private Integer tempResult; // changeMe
     
     
-    public MoResultList()
+    public ResultList()
     {
         
     }   

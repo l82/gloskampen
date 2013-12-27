@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * This class is responsible to handle the quiz data
  * @author lotta
  */
-public class MoGlossary {
+public class Glossary {
     private int numberOfFailed;
     private int level;
     private int fromLanguage;
@@ -19,14 +19,22 @@ public class MoGlossary {
     private ArrayList<String> listOfAlreadyUsedWords;
     private ArrayList<String> listOfFailedWords;
     private ArrayList<String> listOfFailedWordsTranslated;
+    private gloskampen.model.WordList   wordListToUse;
     
+    public Glossary() {
+        
+    }
+    
+    public void setWordList(gloskampen.model.WordList wordList) {
+        wordListToUse = wordList;
+    }
     /**
      * Asks for a glossary that the user should test
      * @return The glossary that the pupils should translate
      */
     public String randomiseOneGlossary() {
         String randomisedGlossary;
-        randomisedGlossary = "";
+        randomisedGlossary = wordListToUse.randomiseGlossary();
         return randomisedGlossary;
     }  
     

@@ -7,20 +7,20 @@
 package gloskampen.control;
 
 /**
- * The Gloskampen class is the main class for a program for starting the glos-
- * kampen programme.
+ * The GloskampenMain class is the main class for a program for starting the glos-
+ kampen programme.
  * @author Lotta Hagborg
  */
-public class Gloskampen {
+public class GloskampenMain {
     
     /**
      * The main method for the memory game
      * @param args 
      */
     public static void main(String[] args) {
-        gloskampen.view.ViMain mainView = new gloskampen.view.ViMain();
-        gloskampen.model.MoMain mainModel = new gloskampen.model.MoMain();
-        gloskampen.control.CoMain mainControl = new gloskampen.control.CoMain(mainModel, mainView);
+        gloskampen.view.MainView mainView = new gloskampen.view.MainView();
+        gloskampen.model.Main mainModel = new gloskampen.model.Main();
+        gloskampen.control.MainController mainControl = new gloskampen.control.MainController(mainModel, mainView);
         mainControl.initiateSystem();
     }
 }

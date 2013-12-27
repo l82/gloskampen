@@ -10,6 +10,6 @@ package gloskampen.model;
  *
  * @author lotta
  */
-public class MoMain {
+public class Main {
     
 }
