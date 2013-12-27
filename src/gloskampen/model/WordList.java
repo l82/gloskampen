@@ -35,7 +35,7 @@ public class WordList
     }
     
     public String randomiseGlossary() {
-        return("bil;car");
+        return("husvagn;caravan");
     }
     
     public void initiateTestWords() {

@@ -22,6 +22,7 @@ public class GlossaryController {
     private String currentRightAnswer;
     private final int totNumberOfGlossaries;
     private gloskampen.model.Glossary glossary;
+    gloskampen.view.MainView mainView;
     
     
     /**
@@ -30,13 +31,14 @@ public class GlossaryController {
      * @param totNumWordsInTest Total number of words in a test
      * @param wordList Handle to word list object
      */
-    public GlossaryController(gloskampen.view.MainView mainView, 
+    public GlossaryController(gloskampen.view.MainView inMainView, 
             int totNumWordsInTest)  {
         
         totNumberOfGlossaries = totNumWordsInTest;
         numberOfFailedGlossaries = 0;
         numberOfExecutedGlossaries = 0;
         numberOfTrialsEachTest = 0;            
+        mainView = inMainView;
     }
     
     /**
@@ -61,8 +63,7 @@ public class GlossaryController {
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                String newGlossary;
-                newGlossary = getNewGlossary();
+               newGlossary();
             }
         }); 
         
@@ -179,6 +180,33 @@ public class GlossaryController {
         
         //TODO: Some code;.-)
         return true;
+    }
+    
+    
+    private void newGlossary() {
+        int validAnswer; 
+        
+        String answer;
+        answer = mainView.getAnswer();
+        validAnswer = validateAnswer(answer);
+        
+        if (validAnswer >= 0) {
+            String newGlossary;
+            mainView.setErrorText("");
+            newGlossary = getNewGlossary();
+            mainView.setNewGlossary(newGlossary);
+        }
+    }
+    
+    private int validateAnswer(String answer) {
+        int result;
+        result = 0;
+        
+        if (answer.isEmpty()) {
+            mainView.setErrorText("You must provide a text");
+            result = -1;
+        }
+        return result;
     }
     
 }

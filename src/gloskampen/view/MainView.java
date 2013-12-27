@@ -6,6 +6,7 @@
 
 package gloskampen.view;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
@@ -22,21 +23,26 @@ import javax.swing.JTextField;
 public class MainView {
     
     public JButton initiateButton, nextButton;
+    private JLabel wordToTranslate;
+    private JTextField answer;
+    private JLabel errorText;
     
     public void generateFrames() {
         JFrame myFrame;
-        JPanel startPanel, gamePanel;
+        JPanel startPanel, gamePanel;    
         
         myFrame = generateFrame();
         startPanel = generatePanel(1, 1);
         gamePanel = generatePanel(1, 3);
         initiateButton = new JButton("Start");
         nextButton = new JButton("Next");
-        JTextField answer = new JTextField("car");
-        JLabel glossary = new JLabel("bil");
+        answer = new JTextField("car");
+        wordToTranslate = new JLabel("bil");
+        errorText = new JLabel();
         startPanel.add(initiateButton);
-        gamePanel.add(glossary);
+        gamePanel.add(wordToTranslate);
         gamePanel.add(answer);
+        gamePanel.add(errorText);
         gamePanel.add(nextButton);
         myFrame.getContentPane().setLayout(new FlowLayout());
         myFrame.getContentPane().add(startPanel);
@@ -73,5 +79,23 @@ public class MainView {
      */
     public void nextAddListener(ActionListener listener) {
         nextButton.addActionListener(listener);
+    }
+    
+    public void setNewGlossary(String word) {
+        wordToTranslate.setText(word);
+        System.out.println(word);
+    }
+    
+    public String getAnswer() {
+        String tobeAnswer;
+        tobeAnswer = answer.getText();
+        return tobeAnswer;
+    }
+    
+    public void setErrorText(String errorMessage) {
+
+        errorText.setForeground(Color.red);
+        errorText.setText(errorMessage);
+        System.out.println(errorMessage);
     }
 }

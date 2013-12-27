@@ -7,6 +7,8 @@
 
 package gloskampen.control;
 
+import gloskampen.model.WordList;
+
 /**
  *
  * @author lotta
@@ -30,10 +32,16 @@ public class MainController {
     }
     
     public void initiateSystem() {
+        gloskampen.model.WordList testListSvEn;
         mainView.generateFrames();
         GlossaryController glossaryController = new GlossaryController(mainView,
         NUMBER_OF_WORDS_IN_TEST);
         glossaryController.intiateGlossaryControlerGame(mainView);
+        
+        //L8 TODO: Test code to make it easier to test. Should be removed later on
+        testListSvEn = new WordList("svenska", "engelska");
+        testListSvEn.initiateTestWords();
+        glossaryController.setWordList(testListSvEn);
         
     }
     
