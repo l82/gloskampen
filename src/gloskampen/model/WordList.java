@@ -7,6 +7,7 @@
 package gloskampen.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * This class is responsible for handling a list of all lists of words that the 
@@ -20,11 +21,12 @@ public class WordList
     private String language2;
     private ArrayList<Word> words;
     private String tempWordList; // changeMe
+    private int i;  //TODO removed just testcode
        
     
     public WordList()
     {
-        
+        i = 0; //TODO
     }
     
     public WordList(String fromLanguage, String toLanguage)
@@ -35,7 +37,14 @@ public class WordList
     }
     
     public String randomiseGlossary() {
-        return("husvagn;caravan");
+        String newWordString;
+        
+        Word newWordObject;
+        Collections.shuffle(words);
+        newWordObject = words.get(i);
+        newWordString = newWordObject.getWord();
+        i++;
+        return(newWordString);
     }
     
     public void initiateTestWords() {
@@ -51,6 +60,10 @@ public class WordList
         add("jordgubbe", "straberry", 2);
         add("sommar", "summer", 2);
         add("jul", "Christmas", 2);
+        add("höst", "autumn", 3);
+        add("vår", "spring", 2);
+        add("byxor", "trousers", 2);
+        add("gris", "pig", 1);
     }
     
     public void tearDownTestWords() {

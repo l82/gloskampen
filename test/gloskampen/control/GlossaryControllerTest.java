@@ -19,6 +19,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.hamcrest.CoreMatchers.*;
 import static org.junit.matchers.JUnitMatchers.*;
+import java.lang.reflect.Method; 
+import java.lang.reflect.InvocationTargetException;
 /**
  *
  * @author lotta
@@ -64,6 +66,23 @@ public class GlossaryControllerTest {
         String expResult = "bil;car husvagn;caravan olycka;accident spel;game näsa;nose axel;shoulder, ansikte;face gurka;cucumber jordgubbe;strawberry sommar;summer jul;Christmas";
         String result = instance.getNewGlossary();
         assertThat(expResult, containsString(result));
+    }
+    
+    @Test    
+    public void testValidateAnswer() throws IllegalAccessException, 
+            IllegalArgumentException, InvocationTargetException, NoSuchMethodException {
+
+        Integer result;
+        String strResult;
+        System.out.println("validateAnswer");
+        GlossaryController instance;
+        instance = new gloskampen.control.GlossaryController(null, (int)10);
+        Class secretClass = instance.getClass();
+        Method method = secretClass.getDeclaredMethod("validateAnswer", String.class); 
+        method.setAccessible(true);
+        result = (Integer)method.invoke(instance, "kalle");
+        strResult = result.toString();
+        assertEquals("0", strResult);
     }
 
 

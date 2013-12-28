@@ -49,25 +49,24 @@ public class GlossaryController {
     public void intiateGlossaryControlerGame(gloskampen.view.MainView mainView)  
     {
         
-        mainView.initiateButton.addActionListener(new ActionListener() {
+        mainView.intiateAddListener(new ActionListener() {
                 
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                
+                generateNewGame();
             }
         }); 
         
-        mainView.nextButton.addActionListener(new ActionListener() {
+        mainView.nextAddListener(new ActionListener() {
                 
             @Override
             public void actionPerformed(ActionEvent e)
             {
-               newGlossary();
+               checkAndGenerateNewGlossary();
             }
         }); 
         
-        System.out.println("L8 to generate a glossary object");
         glossary = new gloskampen.model.Glossary();
     }
     
@@ -79,17 +78,18 @@ public class GlossaryController {
     public String getNewGlossary() {
         String word;
         word = "";
+        String[] bothWords;
         
         //TODO: Check for failed array if numberOfExecutedGlossaries are done.
         //TODO: Check if currentNumberOfTrials is less than numberOfTrialsEachTest:
         //If it is the same glossary should be returned.
         numberOfExecutedGlossaries++;
         
-        //TODO: Get glossary and the answer from model. Store the correct answer
-        //in currentRightAnswer
         word = glossary.randomiseOneGlossary();
+        bothWords = word.split(";");
+        currentRightAnswer = bothWords[1];
         
-        return word;
+        return bothWords[0];
     }
     
     public void setWordList(gloskampen.model.WordList tobeWordList) {
@@ -104,7 +104,7 @@ public class GlossaryController {
      */
     Boolean checkEndOfTest() {
         Boolean end;
-        end = false; //Intitiate to false and checnge only if should
+        end = false; //Intitiate to false and change only if should
         if (numberOfExecutedGlossaries == (totNumberOfGlossaries + 
                 numberOfFailedGlossaries)) {
             end = true;
@@ -117,7 +117,7 @@ public class GlossaryController {
      * @param triedGlossary The glossary to check
      * @return Empty string if glossary was correct else the correct glossary
      */
-    public String validateGlossary(String triedGlossary) {
+    private String validateGlossary(String triedGlossary) {
         String correct;
         
         if (currentRightAnswer.equals(triedGlossary)) {
@@ -182,21 +182,54 @@ public class GlossaryController {
         return true;
     }
     
-    
-    private void newGlossary() {
+    private void checkAndGenerateNewGlossary() {
         int validAnswer; 
-        
         String answer;
+        String errorText;
+        String newGlossary;
+        
         answer = mainView.getAnswer();
         validAnswer = validateAnswer(answer);
         
         if (validAnswer >= 0) {
-            String newGlossary;
-            mainView.setErrorText("");
-            newGlossary = getNewGlossary();
-            mainView.setNewGlossary(newGlossary);
+            errorText = generateResult(answer);
+            mainView.setErrorText(errorText);
+            if (errorText.equals("")) {
+                mainView.setCorrectText("Correct answer :-) " + currentRightAnswer);
+            }
+            else {
+                numberOfFailedGlossaries++;
+            }
+            if (!checkEndOfTest()) {
+                newGlossary = generateNewGlossary();
+                mainView.setGlossaryNumber(numberOfExecutedGlossaries);
+                mainView.setNewGlossary(newGlossary);
+                
+            }
+            else {
+                mainView.setEndText(totNumberOfGlossaries, 
+                        (totNumberOfGlossaries - numberOfFailedGlossaries));
+            }
+            mainView.setEmptyAnswer();
         }
     }
+    
+    private String generateResult(String answer) {
+        String correctAnswer;
+        String errorText;
+        
+        correctAnswer = validateGlossary(answer);
+        
+        //TODO: Add check for three trials
+        if  (correctAnswer.equals("")) {
+            errorText = "";
+        }
+        else {
+            errorText = "You entered " + answer + " correct answer is " +
+                    correctAnswer;
+        }    
+        return(errorText);
+   }
     
     private int validateAnswer(String answer) {
         int result;
@@ -206,7 +239,24 @@ public class GlossaryController {
             mainView.setErrorText("You must provide a text");
             result = -1;
         }
+        if (answer.equals("")) {
+            mainView.setErrorText("You must provide a text");
+            result = -1;
+        }
         return result;
+    }
+    
+    private void generateNewGame() {
+        String newGlossary;
+        newGlossary = generateNewGlossary();
+        mainView.setGlossaryNumber(numberOfExecutedGlossaries);
+        mainView.setNewGlossary(newGlossary);
+    }
+    
+    private String generateNewGlossary() {
+        String newGlossary;
+        newGlossary = getNewGlossary();
+        return newGlossary;
     }
     
 }

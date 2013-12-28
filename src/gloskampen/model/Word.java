@@ -24,6 +24,7 @@ public class Word
         language1 = fromLanguage;
         language2 = toLanguage;
         difficulty = inDifficulty;
+        tempWord = fromLanguage + ";" + toLanguage;
         
     }
     
@@ -37,8 +38,8 @@ public class Word
         
     }
     
-    private String getWord()
-    {        
+    public String getWord()
+    {   
         return tempWord;
     }   
 }
