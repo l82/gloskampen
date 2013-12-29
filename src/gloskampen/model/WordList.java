@@ -7,7 +7,7 @@
 package gloskampen.model;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Random;
 
 /**
  * This class is responsible for handling a list of all lists of words that the 
@@ -21,47 +21,132 @@ public class WordList
     private String language2;
     private ArrayList<Word> words;
     private String tempWordList; // changeMe
-    private int i;  //TODO removed just testcode
-       
+    private int currentWord;
     
+    /**
+     * 
+     */
     public WordList()
     {
-        i = 0; //TODO
-    }
-    
-    public WordList(String fromLanguage, String toLanguage)
-    {
-        language1 = fromLanguage;
-        language2 = toLanguage;
         words = new ArrayList();
+        currentWord = 0;
     }
     
-    public String randomiseGlossary() {
-        String newWordString;
+    /**
+     * 
+     */
+    private void remove()
+    {
         
-        Word newWordObject;
-        Collections.shuffle(words);
-        newWordObject = words.get(i);
-        newWordString = newWordObject.getWord();
-        i++;
-        return(newWordString);
     }
     
-    public void initiateTestWords() {
+    /**
+     * 
+     */
+    private void add(String wordOne, String wordTwo, int difficulty)
+    {
+        //Word tempWord = new Word(lang1, lang2, diff);
+        words.add( new Word(wordOne.toLowerCase(), wordTwo.toLowerCase(), difficulty) );
+    }
     
+    /**
+     * 
+     * @return 
+     */
+    private String getWordList()
+    {        
+        return tempWordList;
+    }   
+    
+    /**
+     * 
+     */
+    public void printWordList(){
+       for (int i=0; i<words.size(); i++){
+           System.out.print(words.get(i).getWord(1));
+           System.out.println(" - " + words.get(i).getWord(2));
+       } 
+    }
+    
+    /**
+     * 
+     * @param word
+     * @return 
+     */
+    private Boolean checkIfWordExists(String word) {
+        boolean wordExists;
+        wordExists = false;
+        
+        for (int i=0; i<words.size();i++){
+            if (words.get(i).getWord(1).equals(word)){
+                System.out.println("Word found");
+                wordExists = true;
+            }
+        }
+        
+        return wordExists;
+    }
+    
+    /**
+     * 
+     * @param i
+     * @param order 
+     */
+    public void printWord(int i, int order){
+        System.out.println(words.get(i).getWord(order));
+    }
+    
+    /**
+     * 
+     */
+    public void printNotAnsweredWords(){
+        for(int i=0; i<words.size(); i++){
+            if (words.get(i).isAnswered() == false){
+                System.out.println(words.get(i).getWord(1));
+            }
+        }
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getRandomWord(){
+        Random rand = new Random();
+        int nrOfWords = words.size();
+        int iRand = rand.nextInt(nrOfWords);
+              
+        return words.get(iRand).getWord(1);
+        
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public String getNextWord(){
+        String tempWord;
+        tempWord = words.get(currentWord).getWord(1);
+        currentWord++;
+        return tempWord;
+    }
+    
+     public void initiateTestWords() {
+    
+        System.out.println("WrodList: initiateTestWords");
         add("bil", "car", 1);
         add("husvagn", "caravan", 2);
         add("olycka", "accident", 3);
         add("spel", "game", 1);
-        add("näsa", "nose", 1);
+        add("mun", "mouth", 1);
         add("axel", "shoulder", 2);
         add("ansikte", "face", 2);
         add("gurka", "cucumber", 3);
-        add("jordgubbe", "straberry", 2);
+        add("jordgubbe", "strawberry", 2);
         add("sommar", "summer", 2);
         add("jul", "Christmas", 2);
-        add("höst", "autumn", 3);
-        add("vår", "spring", 2);
+        add("dra", "pull", 3);
+        add("finger", "finger", 2);
         add("byxor", "trousers", 2);
         add("gris", "pig", 1);
     }
@@ -72,30 +157,14 @@ public class WordList
         
     }
     
-    private void remove()
-    {
+     public String getRandomWordL8(){
+        Random rand = new Random();
+        int nrOfWords = words.size();
+        int iRand = rand.nextInt(nrOfWords);
+              
+        return (words.get(iRand).getWord(1) + ";" + words.get(iRand).getWord(2));
         
     }
     
-     /** 
-     * Adds a movie into list
-     * 
-     * @param mTitle        The title of the movie to add
-     * @param mGenre        The genre of the movie, for example children 
-     * @param mDirector     The director of the movie to add
-     * @param mAge          The age which the movie is allowed from
-     * @param mTime         The time in minutes which the movie last
-     */
-    private void add(String fromLanguage, String toLanguage, 
-            Integer difficulty) {
-        
-        Word word;
-        word = new Word(fromLanguage, toLanguage, difficulty);
-        words.add(word);
-    }
     
-    private String getWordList()
-    {        
-        return tempWordList;
-    }   
 }

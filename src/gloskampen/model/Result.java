@@ -16,9 +16,44 @@ public class Result
     private String user;
     private Integer level;
            
-    
+    /**
+     * 
+     */
     public Result()
     {
         
     }        
+    
+    public Result(String user, int result, int level){
+        this.user = user;
+        this.result = result;
+        this.level = level;
+    }
+    
+    /**
+     * 
+     */
+    public void add(){
+        
+    }
+    
+    /**
+     * 
+     * @param user
+     * @param result
+     * @param level 
+     */
+    public void setResult(String user, int result, int level){
+        this.user = user;
+        this.result = result;
+        this.level = level;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public int getPoints(){
+        return result;
+    }
 }

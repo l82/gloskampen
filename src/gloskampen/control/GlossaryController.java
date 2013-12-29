@@ -77,7 +77,6 @@ public class GlossaryController {
      */
     public String getNewGlossary() {
         String word;
-        word = "";
         String[] bothWords;
         
         //TODO: Check for failed array if numberOfExecutedGlossaries are done.
@@ -88,7 +87,6 @@ public class GlossaryController {
         word = glossary.randomiseOneGlossary();
         bothWords = word.split(";");
         currentRightAnswer = bothWords[1];
-        
         return bothWords[0];
     }
     

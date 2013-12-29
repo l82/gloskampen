@@ -6,6 +6,9 @@
 
 package gloskampen.model;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /**
  * This class is responsible for a certain word between two certain languages
  * @author Fredrik Johansson
@@ -16,30 +19,99 @@ public class Word
     private String language2;
     private Integer difficulty;
     private Boolean ok;
-    private String tempWord; // changeMe
+    private boolean answered;
     
-    
-    public Word(String fromLanguage, String toLanguage, Integer inDifficulty)
-    {
-        language1 = fromLanguage;
-        language2 = toLanguage;
-        difficulty = inDifficulty;
-        tempWord = fromLanguage + ";" + toLanguage;
-        
-    }
-    
-    private void remove()
+    /**
+     * Default constructor
+     */
+    public Word()
     {
         
     }
     
-    private void add(String string)
-    {
+    /**
+     * 
+     */
+    public Word(String language1, String language2, int difficulty){
+        if (this.validChars(language1) && this.validChars(language2)){
+            this.language1 = language1;
+            this.language2 = language2;
+            this.difficulty = difficulty;
+            this.ok = false;
+            this.answered = false; 
+        }
         
     }
     
-    public String getWord()
-    {   
-        return tempWord;
-    }   
+    /**
+     * @param order of word to get
+     * @return 
+     */
+    public String getWord(int order)
+    {        
+        if (order == 1){
+            return language1;
+        }
+        return language2;
+    } 
+    
+    /**
+     * 
+     * @param order of word in pair
+     * @param word to insert
+     */
+    public void setWord(int order, String word){
+        if (order==1){
+            language1 = word;
+        }
+        else {
+            language2 = word;
+        }
+    }
+    
+    /**
+     * 
+     * @param word
+     * @return matchFound which indicates valid or invalid chars in word 
+     */
+    private boolean validChars(String word){
+        Pattern p = Pattern.compile("[A-Ö][a-ö]-+");
+        Matcher m = p.matcher(word);
+        
+        boolean matchFound = m.matches();
+        if (matchFound){
+            System.out.println("Valid");
+        }
+        else {
+            System.out.println("Invalid");
+        }
+        return true;
+        //L8 matchFound something wrong?
+        //return matchFound;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public boolean isAnswered(){
+        return answered;
+    }
+    
+    /**
+     * 
+     * @return 
+     */
+    public boolean isWrong(){
+        return ok;
+    }
+    
+    public void swapWords(){
+        String tempWord;
+        
+        tempWord = this.language1;
+        this.language1 = this.language2;
+        this.language2 = tempWord;
+        
+    }
 }

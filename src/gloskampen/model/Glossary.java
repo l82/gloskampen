@@ -34,7 +34,7 @@ public class Glossary {
      */
     public String randomiseOneGlossary() {
         String randomisedGlossary;
-        randomisedGlossary = wordListToUse.randomiseGlossary();
+        randomisedGlossary = wordListToUse.getRandomWordL8();
         return randomisedGlossary;
     }  
     

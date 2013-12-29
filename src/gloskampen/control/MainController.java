@@ -39,7 +39,8 @@ public class MainController {
         glossaryController.intiateGlossaryControlerGame(mainView);
         
         //L8 TODO: Test code to make it easier to test. Should be removed later on
-        testListSvEn = new WordList("svenska", "engelska");
+        testListSvEn = new WordList();
+        //testListSvEn = new WordList("svenska", "engelska");
         testListSvEn.initiateTestWords();
         glossaryController.setWordList(testListSvEn);
         

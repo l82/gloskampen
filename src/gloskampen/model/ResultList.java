@@ -7,6 +7,7 @@
 package gloskampen.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * This class is responsible for handling all the results for all tests
@@ -14,25 +15,45 @@ import java.util.ArrayList;
  */
 public class ResultList
 {    
-    private ArrayList resultList;
-    private Integer tempResult; // changeMe
+    private ArrayList<Result> resultList;
+    private Integer tempResult; // changeMe trdt
     
-    
+    /**
+     * 
+     */
     public ResultList()
     {
-        
+        resultList = new ArrayList();
     }   
     
-    private void addNewResult()
+    /**
+     * 
+     */
+    private void addNewResult(String user, int result, int level)
     {
-        
+        resultList.add( new Result(user,result,level) );
     }
     
+    /**
+     * 
+     */
     private void getTopList()
     {
+       
         
     }
     
+    /**
+     * 
+     */
+    private void sortList(){
+        
+    }
+    
+    /**
+     * 
+     * @return 
+     */
     private Integer getResultForUser()
     {
         return tempResult;

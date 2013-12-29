@@ -11,13 +11,35 @@ package gloskampen.model;
  * @author lotta
  */
 public class User {
-    private final String userName;
+    private String userName;
+    
+    /**
+     * Default constructor
+     */
+    public User(){
+        
+    }
     
     /**
      * Constructor for a new user
-     * @param user The name of the user
+     * @param userName The name of the user
      */
-    public User(String user) {
-        userName = user;
+    public User(String userName) {
+        this.userName = userName;
     }
+    
+    /**
+     * @param userName
+     */
+    public void setUser(String userName){
+       this.userName = userName;
+    }
+    
+    /**
+     * @return
+     */
+    public String getUser(){
+        return userName;
+    }
+    
 }
