@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 /**
  * This class is responsible for a certain word between two certain languages
- * @author Fredrik Johansson
+ * @author
  */
 public class Word 
 {    

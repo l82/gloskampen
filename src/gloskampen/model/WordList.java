@@ -13,7 +13,7 @@ import java.util.Random;
  * This class is responsible for handling a list of all lists of words that the 
  * programme has, i.e one entry for a list between Swedish-English, one for 
  * Swedish-German etc
- * @author Fredrik Johansson
+ * @author 
  */
 public class WordList
 {    

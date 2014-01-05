@@ -13,8 +13,8 @@ import gloskampen.model.WordList;
  *
  * @author lotta
  */
-public class MainController {
-   
+public class MainController 
+{   
     private final gloskampen.view.MainView  mainView;
     private final gloskampen.model.Main  mainModel;
     static final int NUMBER_OF_WORDS_IN_TEST = 10;
@@ -25,25 +25,25 @@ public class MainController {
      * @param inModel main model object
      * @param inViewer main view object
      */
-    public MainController(gloskampen.model.Main inModel, 
-            gloskampen.view.MainView inViewer) {
+    public MainController(gloskampen.model.Main inModel, gloskampen.view.MainView inViewer)
+    {       
         mainView = inViewer;
         mainModel = inModel;
     }
     
-    public void initiateSystem() {
+    public void initiateSystem() 
+    {
         gloskampen.model.WordList testListSvEn;
-        mainView.generateFrames();
+                
         GlossaryController glossaryController = new GlossaryController(mainView,
-        NUMBER_OF_WORDS_IN_TEST);
-        glossaryController.intiateGlossaryControlerGame(mainView);
+            NUMBER_OF_WORDS_IN_TEST);
         
+        glossaryController.intiateGlossaryControlerGame(mainView);
+                
         //L8 TODO: Test code to make it easier to test. Should be removed later on
         testListSvEn = new WordList();
         //testListSvEn = new WordList("svenska", "engelska");
         testListSvEn.initiateTestWords();
-        glossaryController.setWordList(testListSvEn);
-        
-    }
-    
+        glossaryController.setWordList(testListSvEn);        
+    }    
 }

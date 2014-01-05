@@ -11,7 +11,7 @@ import java.util.Collections;
 
 /**
  * This class is responsible for handling all the results for all tests
- * @author Fredrik Johansson
+ * @author 
  */
 public class ResultList
 {    

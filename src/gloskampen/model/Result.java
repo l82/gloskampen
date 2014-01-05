@@ -8,7 +8,7 @@ package gloskampen.model;
 
 /**
  * This class is responsible for handling the result for a certain quiz
- * @author Fredrik Johansson
+ * @author 
  */
 public class Result
 {    

@@ -7,185 +7,1123 @@
 package gloskampen.view;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JLabel;
-import javax.swing.JButton;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
-import javax.swing.JRadioButton;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton; 
+import javax.swing.JWindow;
+import javax.swing.SwingConstants;
 
 /**
- *
- * @author lotta
+ * Latest update: 2014-01-04 20:01
+ * @author freddyrock 
  */
-public class MainView {
-    
-    private JButton initiateButton, nextButton;
-    private JLabel wordToTranslate, correctText, errorText, wordNo, endLabel; 
-    private JTextField answer, selectOrWrite;
-    private JComboBox fromLanguage, toLanguage, difficulty, numberOfTries;
-    private ButtonGroup groupSelectOrWrite;
-    private JRadioButton selectButton, writeButton;
-    
-    public void generateFrames() {
-        JFrame myFrame;
-        JPanel startPanel, gamePanel, fromLanguagePanel, toLanguagePanel, 
-                difficultyPanel, numberOfTriesPanel, textMessagePanel, initiatePanel;
-        JLabel fromLanguageLabel, toLanguageLabel, difficultyLabel, numberOfTriesLabel,
-                selectOrWriteLabel;
+public class MainView extends javax.swing.JFrame 
+{
+    private ButtonGroup groupSelectOrType;
+    private Dimension screenSize;
         
-        myFrame = generateFrame();
-        startPanel = generatePanel();
-        gamePanel = generatePanel();
-        fromLanguagePanel = generatePanel();
-        toLanguagePanel = generatePanel();
-        difficultyPanel = generatePanel();
-        numberOfTriesPanel = generatePanel();
-        textMessagePanel = generatePanel();
-        initiatePanel = generatePanel();
-        
-        initiateButton = new JButton("Start");
-        nextButton = new JButton("Next");
-        answer = new JTextField(20);
-        wordToTranslate = new JLabel("");
-        wordNo = new JLabel("");
-        errorText = new JLabel();
-        correctText = new JLabel();
-        endLabel = new JLabel();
-        fromLanguageLabel = new JLabel("Choose from language");
-        toLanguageLabel = new JLabel("Choose to language");
-        difficultyLabel = new JLabel("Choose difficulty");
-        numberOfTriesLabel = new JLabel("Choose number of tries (1-3)");
-        selectOrWriteLabel = new JLabel("Write or select");
-        generateComboBoxes();
-        generateRadioButtons();
-        
-        fromLanguagePanel.add(fromLanguageLabel);
-        fromLanguagePanel.add(fromLanguage);
-        toLanguagePanel.add(toLanguageLabel);
-        toLanguagePanel.add(toLanguage);
-        difficultyPanel.add(difficultyLabel);
-        difficultyPanel.add(difficulty);
-        numberOfTriesPanel.add(selectOrWriteLabel);
-        numberOfTriesPanel.add(selectButton);
-        numberOfTriesPanel.add(writeButton);
-        initiatePanel.add(initiateButton);
-        
-        startPanel.add(fromLanguagePanel);
-        startPanel.add(toLanguagePanel);
-        startPanel.add(difficultyPanel);
-        startPanel.add(numberOfTriesPanel);
-        startPanel.add(initiatePanel);
-        textMessagePanel.add(errorText);
-        textMessagePanel.add(correctText);
-        gamePanel.add(wordNo);
-        gamePanel.add(wordToTranslate);
-        gamePanel.add(answer);
-        gamePanel.add(nextButton);
-        gamePanel.add(endLabel);
-        myFrame.getContentPane().setLayout(new GridLayout(4, 4));
-        myFrame.getContentPane().add(startPanel);
-        myFrame.getContentPane().add(textMessagePanel);
-        myFrame.getContentPane().add(gamePanel);
-        myFrame.setVisible(true);
-    }
     
-    private void generateRadioButtons() {
-        groupSelectOrWrite = new ButtonGroup();
-        selectButton = new JRadioButton("Select between choices");
-        writeButton = new JRadioButton("Write self");
-        groupSelectOrWrite.add(selectButton);
-        groupSelectOrWrite.add(writeButton);
-        writeButton.setSelected(true);
-    }
-    
-    private void generateComboBoxes() {
-        String[] languages = { "Svenska", "Engelska" };
-        String[] difficultyLevel = { "Any", "Hard", "Middle", "Beginner" };
-        String[] tries = { "1", "2", "3"};
+    /**
+     * Creates new form MainView
+     */
+    public MainView() 
+    {     
+        screenSize = Toolkit.getDefaultToolkit().getScreenSize(); 
+        displaySplashScreen();        
+        initComponents();                  
+        this.setLocation(screenSize.width / 2 - this.getSize().width / 2, screenSize.height / 2 - this.getSize().height / 2);        
+        createGroupSelectOrType();              
+    }    
         
-        fromLanguage = new JComboBox(languages);
-        toLanguage = new JComboBox(languages);
-        fromLanguage.setSelectedIndex(0);
-        toLanguage.setSelectedIndex(1);
-        difficulty = new JComboBox(difficultyLevel);
-        numberOfTries = new JComboBox(tries);
-    }
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        panelMainMenu = new javax.swing.JPanel();
+        labelLogo = new javax.swing.JLabel();
+        btnNewGame = new javax.swing.JButton();
+        btnHighScore = new javax.swing.JButton();
+        btnAddWord = new javax.swing.JButton();
+        btnListWords = new javax.swing.JButton();
+        labelSettingsIcon = new javax.swing.JLabel();
+        labelHelpIcon = new javax.swing.JLabel();
+        panelLangDiffSelect = new javax.swing.JPanel();
+        labelLangDiffSelect = new javax.swing.JLabel();
+        labelCBFrom1 = new javax.swing.JLabel();
+        comBoxFrom1 = new javax.swing.JComboBox();
+        labelCBTo1 = new javax.swing.JLabel();
+        comBoxTo1 = new javax.swing.JComboBox();
+        labelCBDiff = new javax.swing.JLabel();
+        comBoxDiff = new javax.swing.JComboBox();
+        labelCBSelectType = new javax.swing.JLabel();
+        radBtnSelectChoices = new javax.swing.JRadioButton();
+        radBtnTypeWord = new javax.swing.JRadioButton();
+        btnConfirmLangDiff = new javax.swing.JButton();
+        btnLangDiffSelectBack = new javax.swing.JButton();
+        panelPreGame = new javax.swing.JPanel();
+        labelPreGame = new javax.swing.JLabel();
+        btnStartGame = new javax.swing.JButton();
+        labelPreGame1 = new javax.swing.JLabel();
+        labelPreGame2 = new javax.swing.JLabel();
+        labelPreGame3 = new javax.swing.JLabel();
+        labelPreGame4 = new javax.swing.JLabel();
+        labelPreGameFrom = new javax.swing.JLabel();
+        labelPreGameTo = new javax.swing.JLabel();
+        labelPreGame5 = new javax.swing.JLabel();
+        labelPreGameDiff = new javax.swing.JLabel();
+        labelPreGame6 = new javax.swing.JLabel();
+        labelPreGameSelectType = new javax.swing.JLabel();
+        btnPreGameBack = new javax.swing.JButton();
+        panelGame = new javax.swing.JPanel();
+        labelGame = new javax.swing.JLabel();
+        btnNext = new javax.swing.JButton();
+        txtFldAnswer = new javax.swing.JTextField();
+        labelWordToTranslate = new javax.swing.JLabel();
+        labelWordNo = new javax.swing.JLabel();
+        labelFeedback = new javax.swing.JLabel();
+        labelEndGame = new javax.swing.JLabel();
+        btnEndGame = new javax.swing.JButton();
+        panelGameTest = new javax.swing.JPanel();
+        panelGameTest2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        panelSettings = new javax.swing.JPanel();
+        labelSettings = new javax.swing.JLabel();
+        btnSettingsBack = new javax.swing.JButton();
+        panelHelp = new javax.swing.JPanel();
+        labelHelp = new javax.swing.JLabel();
+        btnHelpBack = new javax.swing.JButton();
+        panelHighscore = new javax.swing.JPanel();
+        labelHighscore = new javax.swing.JLabel();
+        btnHighscoreBack = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
+        panelAddWord = new javax.swing.JPanel();
+        labelAddWord = new javax.swing.JLabel();
+        btnAddWordBack = new javax.swing.JButton();
+        labelCBFrom2 = new javax.swing.JLabel();
+        txtFldAddWordFrom = new javax.swing.JTextField();
+        comBoxFrom2 = new javax.swing.JComboBox();
+        labelAddWordFromError = new javax.swing.JLabel();
+        labelCBTo2 = new javax.swing.JLabel();
+        comBoxTo2 = new javax.swing.JComboBox();
+        txtFldAddWordTo = new javax.swing.JTextField();
+        labelAddWordToError = new javax.swing.JLabel();
+        txtFldAddWordNewLang = new javax.swing.JTextField();
+        btnAddWordAdd = new javax.swing.JButton();
+        btnAddWordClear = new javax.swing.JButton();
+        panelListWords = new javax.swing.JPanel();
+        labelListWords = new javax.swing.JLabel();
+        btnListWordsBack = new javax.swing.JButton();
+        scrPaneListWords = new javax.swing.JScrollPane();
+        jEditorPane1 = new javax.swing.JEditorPane();
+        labelCBFrom3 = new javax.swing.JLabel();
+        comBoxFrom3 = new javax.swing.JComboBox();
+        labelCBTo3 = new javax.swing.JLabel();
+        comBoxTo3 = new javax.swing.JComboBox();
+        btnListWordsSave = new javax.swing.JButton();
+        btnListWordsShow = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gloskampen");
+        getContentPane().setLayout(new java.awt.CardLayout());
+
+        labelLogo.setFont(new java.awt.Font("Stencil Std", 1, 24)); // NOI18N
+        labelLogo.setText("GLOSKAMPEN");
+
+        btnNewGame.setText("Nytt spel");
+        btnNewGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewGameActionPerformed(evt);
+            }
+        });
+
+        btnHighScore.setText("Topplista");
+        btnHighScore.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHighScoreActionPerformed(evt);
+            }
+        });
+
+        btnAddWord.setText("Lägg till glosa");
+        btnAddWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddWordActionPerformed(evt);
+            }
+        });
+
+        btnListWords.setText("Lista glosor");
+        btnListWords.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListWordsActionPerformed(evt);
+            }
+        });
+
+        labelSettingsIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gloskampen/view/images/settings.png"))); // NOI18N
+        labelSettingsIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelSettingsIconMouseClicked(evt);
+            }
+        });
+
+        labelHelpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gloskampen/view/images/help.png"))); // NOI18N
+        labelHelpIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelHelpIconMouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelMainMenuLayout = new javax.swing.GroupLayout(panelMainMenu);
+        panelMainMenu.setLayout(panelMainMenuLayout);
+        panelMainMenuLayout.setHorizontalGroup(
+            panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMainMenuLayout.createSequentialGroup()
+                .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMainMenuLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelMainMenuLayout.createSequentialGroup()
+                                .addComponent(labelSettingsIcon)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelHelpIcon))))
+                    .addGroup(panelMainMenuLayout.createSequentialGroup()
+                        .addGap(393, 393, 393)
+                        .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnListWords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnAddWord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnHighScore, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNewGame, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(395, Short.MAX_VALUE))
+        );
+        panelMainMenuLayout.setVerticalGroup(
+            panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMainMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelSettingsIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelHelpIcon, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(btnNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnHighScore, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(btnAddWord, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(223, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panelMainMenu, "card2");
+
+        labelLangDiffSelect.setText("(panelLangDiffSelect)");
+
+        labelCBFrom1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCBFrom1.setText("Välj från-språk:");
+
+        comBoxFrom1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svenska", "Engelska" }));
+        comBoxFrom1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comBoxFrom1ActionPerformed(evt);
+            }
+        });
+
+        labelCBTo1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCBTo1.setText("Välj till-språk:");
+
+        comBoxTo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Engelska", "Svenska" }));
+
+        labelCBDiff.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCBDiff.setText("Välj svårighetsgrad:");
+
+        comBoxDiff.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Vilken som", "Svår", "Mellan", "Lätt" }));
+
+        labelCBSelectType.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        labelCBSelectType.setText("Välj ord eller skriv själv:");
+
+        radBtnSelectChoices.setText("Välj ord");
+        radBtnSelectChoices.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radBtnSelectChoicesActionPerformed(evt);
+            }
+        });
+
+        radBtnTypeWord.setText("Skriv själv");
+
+        btnConfirmLangDiff.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnConfirmLangDiff.setText("Bekräfta val");
+        btnConfirmLangDiff.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmLangDiffActionPerformed(evt);
+            }
+        });
+
+        btnLangDiffSelectBack.setText("Tillbaka");
+        btnLangDiffSelectBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLangDiffSelectBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelLangDiffSelectLayout = new javax.swing.GroupLayout(panelLangDiffSelect);
+        panelLangDiffSelect.setLayout(panelLangDiffSelectLayout);
+        panelLangDiffSelectLayout.setHorizontalGroup(
+            panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(btnLangDiffSelectBack)
+                .addContainerGap(797, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLangDiffSelectLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLangDiffSelectLayout.createSequentialGroup()
+                        .addComponent(btnConfirmLangDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLangDiffSelectLayout.createSequentialGroup()
+                        .addGroup(panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(labelCBFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comBoxFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comBoxTo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCBDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comBoxDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCBSelectType, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLangDiffSelectLayout.createSequentialGroup()
+                                .addComponent(labelCBTo1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
+                                .addComponent(radBtnSelectChoices)
+                                .addGap(10, 10, 10)
+                                .addComponent(radBtnTypeWord))
+                            .addComponent(labelLangDiffSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(401, 401, 401))))
+        );
+        panelLangDiffSelectLayout.setVerticalGroup(
+            panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(labelLangDiffSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addComponent(labelCBFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(comBoxFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(labelCBTo1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(comBoxTo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(labelCBDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(comBoxDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(labelCBSelectType, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(radBtnSelectChoices)
+                    .addComponent(radBtnTypeWord))
+                .addGap(83, 83, 83)
+                .addComponent(btnConfirmLangDiff)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(btnLangDiffSelectBack)
+                .addGap(58, 58, 58))
+        );
+
+        getContentPane().add(panelLangDiffSelect, "card3");
+
+        labelPreGame.setText("(panelPreGame)");
+
+        btnStartGame.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnStartGame.setText("Starta!");
+        btnStartGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStartGameActionPerformed(evt);
+            }
+        });
+
+        labelPreGame1.setText("Om du vill starta spelet med nedanstående inställningar, tryck på Starta!");
+
+        labelPreGame2.setText("Om du vill ändra någon inställning, tryck Tillbaka.");
+
+        labelPreGame3.setText("Från-språk:");
+
+        labelPreGame4.setText("Till-språk:");
+
+        labelPreGameFrom.setText("<value>");
+
+        labelPreGameTo.setText("<value>");
+
+        labelPreGame5.setText("Svårighetsgrad:");
+
+        labelPreGameDiff.setText("<value>");
+
+        labelPreGame6.setText("Välj ord / skriv själv:");
+
+        labelPreGameSelectType.setText("<value>");
+
+        btnPreGameBack.setText("Tillbaka");
+        btnPreGameBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPreGameBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelPreGameLayout = new javax.swing.GroupLayout(panelPreGame);
+        panelPreGame.setLayout(panelPreGameLayout);
+        panelPreGameLayout.setHorizontalGroup(
+            panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPreGameLayout.createSequentialGroup()
+                .addGap(288, 288, 288)
+                .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelPreGame2)
+                    .addComponent(labelPreGame1)
+                    .addGroup(panelPreGameLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPreGame3)
+                            .addComponent(labelPreGame4)
+                            .addComponent(labelPreGame5)
+                            .addComponent(labelPreGame6))
+                        .addGap(57, 57, 57)
+                        .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelPreGameTo)
+                            .addComponent(labelPreGameFrom)
+                            .addComponent(labelPreGameDiff)
+                            .addComponent(labelPreGameSelectType))))
+                .addGap(0, 297, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPreGameLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnStartGame, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(150, 150, 150))
+            .addGroup(panelPreGameLayout.createSequentialGroup()
+                .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPreGameLayout.createSequentialGroup()
+                        .addGap(398, 398, 398)
+                        .addComponent(labelPreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPreGameLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(btnPreGameBack)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelPreGameLayout.setVerticalGroup(
+            panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPreGameLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(labelPreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(labelPreGame1)
+                .addGap(18, 18, 18)
+                .addComponent(labelPreGame2)
+                .addGap(50, 50, 50)
+                .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPreGame3)
+                    .addComponent(labelPreGameFrom))
+                .addGap(18, 18, 18)
+                .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPreGame4)
+                    .addComponent(labelPreGameTo))
+                .addGap(18, 18, 18)
+                .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPreGame5)
+                    .addComponent(labelPreGameDiff))
+                .addGap(18, 18, 18)
+                .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelPreGame6)
+                    .addComponent(labelPreGameSelectType))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 198, Short.MAX_VALUE)
+                .addComponent(btnStartGame)
+                .addGap(117, 117, 117)
+                .addComponent(btnPreGameBack)
+                .addGap(57, 57, 57))
+        );
+
+        getContentPane().add(panelPreGame, "card4");
+
+        labelGame.setText("(panelGame)");
+
+        btnNext.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnNext.setText("Svara");
+
+        labelWordToTranslate.setText("<word to translate>");
+
+        labelWordNo.setText("<word no>");
+
+        labelFeedback.setText("<feedback text>");
+
+        labelEndGame.setText("<end label>");
+
+        btnEndGame.setText("Avsluta spelomgång");
+        btnEndGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEndGameActionPerformed(evt);
+            }
+        });
+
+        panelGameTest.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        panelGameTest.setPreferredSize(new java.awt.Dimension(600, 728));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("P L A C E H O L D E R");
+
+        javax.swing.GroupLayout panelGameTest2Layout = new javax.swing.GroupLayout(panelGameTest2);
+        panelGameTest2.setLayout(panelGameTest2Layout);
+        panelGameTest2Layout.setHorizontalGroup(
+            panelGameTest2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGameTest2Layout.createSequentialGroup()
+                .addContainerGap(199, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(194, 194, 194))
+        );
+        panelGameTest2Layout.setVerticalGroup(
+            panelGameTest2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGameTest2Layout.createSequentialGroup()
+                .addGap(276, 276, 276)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelGameTestLayout = new javax.swing.GroupLayout(panelGameTest);
+        panelGameTest.setLayout(panelGameTestLayout);
+        panelGameTestLayout.setHorizontalGroup(
+            panelGameTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelGameTest2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        panelGameTestLayout.setVerticalGroup(
+            panelGameTestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelGameTest2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout panelGameLayout = new javax.swing.GroupLayout(panelGame);
+        panelGame.setLayout(panelGameLayout);
+        panelGameLayout.setHorizontalGroup(
+            panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelGameTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
+                .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelGameLayout.createSequentialGroup()
+                        .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEndGame)
+                            .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(labelFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(labelEndGame, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelGameLayout.createSequentialGroup()
+                                .addComponent(labelWordNo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(labelWordToTranslate, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelGame, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelGameLayout.createSequentialGroup()
+                        .addComponent(txtFldAnswer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        panelGameLayout.setVerticalGroup(
+            panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGameLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(labelGame, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
+                .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelWordToTranslate, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelWordNo))
+                .addGap(62, 62, 62)
+                .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNext)
+                    .addComponent(txtFldAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addComponent(labelFeedback, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelEndGame, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 391, Short.MAX_VALUE)
+                .addComponent(btnEndGame)
+                .addGap(28, 28, 28))
+            .addGroup(panelGameLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelGameTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(panelGame, "card5");
+
+        labelSettings.setText("(panelSettings)");
+
+        btnSettingsBack.setText("Tillbaka");
+        btnSettingsBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSettingsBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelSettingsLayout = new javax.swing.GroupLayout(panelSettings);
+        panelSettings.setLayout(panelSettingsLayout);
+        panelSettingsLayout.setHorizontalGroup(
+            panelSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSettingsLayout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addComponent(btnSettingsBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSettingsLayout.createSequentialGroup()
+                .addContainerGap(409, Short.MAX_VALUE)
+                .addComponent(labelSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(425, 425, 425))
+        );
+        panelSettingsLayout.setVerticalGroup(
+            panelSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSettingsLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
+                .addComponent(labelSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 590, Short.MAX_VALUE)
+                .addComponent(btnSettingsBack)
+                .addGap(58, 58, 58))
+        );
+
+        getContentPane().add(panelSettings, "card6");
+
+        labelHelp.setText("(panelHelp)");
+
+        btnHelpBack.setText("Tillbaka");
+        btnHelpBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHelpBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelHelpLayout = new javax.swing.GroupLayout(panelHelp);
+        panelHelp.setLayout(panelHelpLayout);
+        panelHelpLayout.setHorizontalGroup(
+            panelHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHelpLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(btnHelpBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHelpLayout.createSequentialGroup()
+                .addContainerGap(421, Short.MAX_VALUE)
+                .addComponent(labelHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(429, 429, 429))
+        );
+        panelHelpLayout.setVerticalGroup(
+            panelHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHelpLayout.createSequentialGroup()
+                .addGap(73, 73, 73)
+                .addComponent(labelHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 577, Short.MAX_VALUE)
+                .addComponent(btnHelpBack)
+                .addGap(53, 53, 53))
+        );
+
+        getContentPane().add(panelHelp, "card7");
+
+        labelHighscore.setText("(panelHighscore)");
+
+        btnHighscoreBack.setText("Tillbaka till huvudmenyn");
+        btnHighscoreBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHighscoreBackActionPerformed(evt);
+            }
+        });
+
+        jTextPane1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextPane1.setText("Namn\t\tTyp\t\tDatum\t\tPoäng\n\nPelle\t\tn/a\t\t2014-01-01\t\t10");
+        jScrollPane1.setViewportView(jTextPane1);
+
+        javax.swing.GroupLayout panelHighscoreLayout = new javax.swing.GroupLayout(panelHighscore);
+        panelHighscore.setLayout(panelHighscoreLayout);
+        panelHighscoreLayout.setHorizontalGroup(
+            panelHighscoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHighscoreLayout.createSequentialGroup()
+                .addGroup(panelHighscoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelHighscoreLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(btnHighscoreBack))
+                    .addGroup(panelHighscoreLayout.createSequentialGroup()
+                        .addGap(228, 228, 228)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(201, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHighscoreLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelHighscore, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(437, 437, 437))
+        );
+        panelHighscoreLayout.setVerticalGroup(
+            panelHighscoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelHighscoreLayout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addComponent(labelHighscore, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
+                .addComponent(btnHighscoreBack)
+                .addGap(48, 48, 48))
+        );
+
+        getContentPane().add(panelHighscore, "card8");
+
+        labelAddWord.setText("(panelAddWord)");
+
+        btnAddWordBack.setText("Tillbaka");
+        btnAddWordBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddWordBackActionPerformed(evt);
+            }
+        });
+
+        labelCBFrom2.setText("Från:");
+
+        comBoxFrom2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svenska", "Engelska" }));
+
+        labelAddWordFromError.setText("<input error field>");
+
+        labelCBTo2.setText("Till:");
+
+        comBoxTo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Engelska", "Svenska" }));
+
+        labelAddWordToError.setText("<input error field>");
+
+        txtFldAddWordNewLang.setText("Nytt språk");
+
+        btnAddWordAdd.setText("Lägg till glosa");
+
+        btnAddWordClear.setText("Rensa");
+
+        javax.swing.GroupLayout panelAddWordLayout = new javax.swing.GroupLayout(panelAddWord);
+        panelAddWord.setLayout(panelAddWordLayout);
+        panelAddWordLayout.setHorizontalGroup(
+            panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAddWordLayout.createSequentialGroup()
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAddWordLayout.createSequentialGroup()
+                                .addComponent(btnAddWordClear)
+                                .addGap(37, 37, 37)
+                                .addComponent(btnAddWordAdd))
+                            .addComponent(comBoxFrom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCBTo2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCBFrom2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comBoxTo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(btnAddWordBack))
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(txtFldAddWordFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelAddWordFromError, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGap(104, 104, 104)
+                        .addComponent(txtFldAddWordTo, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFldAddWordNewLang, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelAddWordToError))))
+                .addContainerGap(426, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddWordLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(labelAddWord, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(413, 413, 413))
+        );
+        panelAddWordLayout.setVerticalGroup(
+            panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAddWordLayout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(labelAddWord, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(labelCBFrom2)
+                .addGap(7, 7, 7)
+                .addComponent(comBoxFrom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFldAddWordFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelAddWordFromError))
+                .addGap(67, 67, 67)
+                .addComponent(labelCBTo2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comBoxTo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtFldAddWordNewLang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFldAddWordTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelAddWordToError))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 149, Short.MAX_VALUE)
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddWordAdd)
+                    .addComponent(btnAddWordClear))
+                .addGap(145, 145, 145)
+                .addComponent(btnAddWordBack)
+                .addGap(53, 53, 53))
+        );
+
+        getContentPane().add(panelAddWord, "card9");
+
+        labelListWords.setText("(panelListWords)");
+
+        btnListWordsBack.setText("Tillbaka");
+        btnListWordsBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnListWordsBackActionPerformed(evt);
+            }
+        });
+
+        scrPaneListWords.setViewportView(jEditorPane1);
+
+        labelCBFrom3.setText("Från:");
+
+        comBoxFrom3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svenska", "Engelska" }));
+
+        labelCBTo3.setText("Till:");
+
+        comBoxTo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Engelska", "Svenska" }));
+
+        btnListWordsSave.setText("Spara ändringar");
+
+        btnListWordsShow.setText("Visa lista");
+
+        javax.swing.GroupLayout panelListWordsLayout = new javax.swing.GroupLayout(panelListWords);
+        panelListWords.setLayout(panelListWordsLayout);
+        panelListWordsLayout.setHorizontalGroup(
+            panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListWordsLayout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelListWordsLayout.createSequentialGroup()
+                        .addComponent(btnListWordsBack)
+                        .addGap(392, 392, 392))
+                    .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(scrPaneListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(panelListWordsLayout.createSequentialGroup()
+                            .addComponent(labelCBFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(comBoxFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(30, 30, 30)
+                            .addComponent(labelCBTo3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(comBoxTo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(51, 51, 51)
+                            .addComponent(btnListWordsShow)))
+                    .addComponent(btnListWordsSave)
+                    .addComponent(labelListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(397, Short.MAX_VALUE))
+        );
+        panelListWordsLayout.setVerticalGroup(
+            panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelListWordsLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(labelListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelCBFrom3)
+                    .addComponent(comBoxFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCBTo3)
+                    .addComponent(comBoxTo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnListWordsShow))
+                .addGap(18, 18, 18)
+                .addComponent(scrPaneListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(btnListWordsSave)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addComponent(btnListWordsBack)
+                .addGap(64, 64, 64))
+        );
+
+        getContentPane().add(panelListWords, "card10");
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+     
+    private void displaySplashScreen() 
+    {
+        JWindow window = new JWindow();
+        window.getContentPane().add(new JLabel("", new ImageIcon("images/splash2.png"), SwingConstants.CENTER));
+        window.setBounds(screenSize.width / 2 - (640 / 2), screenSize.height / 2 - (400 / 2), 640, 400);
+        window.setVisible(true);
+               
+        // delay 3 seconds
+        try 
+        {
+            Thread.sleep(3000);
+        } 
+        catch (InterruptedException e) 
+        {
+            //
+        }
+        window.setVisible(false);
+        window.dispose();
+    }    
     
-    private JFrame generateFrame() {
-        JFrame myFrame;
-        myFrame = new JFrame("Gloskampen");
-        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        myFrame.setSize(600, 500);
-        return myFrame;
-    }  
-    
-    private JPanel generatePanel() {
-        FlowLayout flowLayout = new FlowLayout();
-        JPanel myPanel = new JPanel();
-        myPanel.setLayout(flowLayout);
-        return myPanel;
+    private void createGroupSelectOrType()
+    {
+        groupSelectOrType = new ButtonGroup();
+        groupSelectOrType.add(radBtnSelectChoices);
+        groupSelectOrType.add(radBtnTypeWord);
+        radBtnTypeWord.setSelected(true);  
     }
     
     /**
-     * Add a listener for the initiate button
+     * Add a listener for the new game button
      * @param listener listener to add
      */
-    public void intiateAddListener(ActionListener listener) {
-        initiateButton.addActionListener(listener);
+    public void initiateAddListener(ActionListener listener) 
+    {
+        btnStartGame.addActionListener(listener); 
     }
     
     /**
      * Add a listener for the next button
      * @param listener listener to add
-     */
-    public void nextAddListener(ActionListener listener) {
-        nextButton.addActionListener(listener);
+     */    
+    public void nextAddListener(ActionListener listener) 
+    {        
+        btnNext.addActionListener(listener); 
     }
     
-    public void setNewGlossary(String word) {
-        wordToTranslate.setText(word);
+    public void setNewGlossary(String word) 
+    {        
+        labelWordToTranslate.setText(word); 
     }
     
-    public void setGlossaryNumber(int no) {
+    public void setGlossaryNumber(int no) 
+    {
         String text;
-        text = Integer.toString(no);
-        wordNo.setText(text + ". ");
+        text = Integer.toString(no);        
+        labelWordNo.setText(text + ". "); 
     }
     
-    public String getAnswer() {
-        String tobeAnswer;
-        tobeAnswer = answer.getText();
+    public String getAnswer() 
+    {
+        String tobeAnswer = "";        
+        tobeAnswer = txtFldAnswer.getText();
         return tobeAnswer;
     }
     
-    public void setErrorText(String errorMessage) {
-
-        errorText.setForeground(Color.red);
-        errorText.setText(errorMessage);
+    public void setErrorText(String errorMessage) 
+    {
+        labelFeedback.setForeground(Color.red); 
+        labelFeedback.setText(errorMessage);
+        
         System.out.println(errorMessage);
     }
     
-    public void setCorrectText(String message) {
-
-        errorText.setForeground(Color.blue);
-        errorText.setText(message);
+    public void setCorrectText(String message) 
+    {        
+        labelFeedback.setForeground(Color.blue);
+        labelFeedback.setText(message);
+        
         System.out.println(message);
     }
     
-    public void setEmptyAnswer() {
-        answer.setText("");
+    public void setEmptyAnswer() 
+    {        
+        txtFldAnswer.setText("");
     }
      
-    public void setEndText(int tot, int correct) {
+    public void setEndText(int tot, int correct) 
+    {
         String corrString, totString;
         corrString = Integer.toString(correct);
-        totString = Integer.toString(tot);
-        endLabel.setText("You had " + corrString + " correct answers of " + tot);
+        totString = Integer.toString(tot);        
+        labelEndGame.setText("You had " + corrString + " correct answers of " + tot);
     }
+    
+    private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
+        
+        panelMainMenu.setVisible(false);
+        panelLangDiffSelect.setVisible(true);        
+    }//GEN-LAST:event_btnNewGameActionPerformed
+
+    private void comBoxFrom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBoxFrom1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comBoxFrom1ActionPerformed
+
+    private void radBtnSelectChoicesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radBtnSelectChoicesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radBtnSelectChoicesActionPerformed
+
+    private void btnConfirmLangDiffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmLangDiffActionPerformed
+        
+        panelLangDiffSelect.setVisible(false);
+        panelPreGame.setVisible(true);        
+    }//GEN-LAST:event_btnConfirmLangDiffActionPerformed
+
+    private void btnStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartGameActionPerformed
+        
+        panelPreGame.setVisible(false);
+        panelGame.setVisible(true);        
+    }//GEN-LAST:event_btnStartGameActionPerformed
+
+    private void labelSettingsIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSettingsIconMouseClicked
+        
+        panelMainMenu.setVisible(false);
+        panelSettings.setVisible(true);        
+    }//GEN-LAST:event_labelSettingsIconMouseClicked
+
+    private void btnSettingsBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSettingsBackActionPerformed
+        
+        panelSettings.setVisible(false);
+        panelMainMenu.setVisible(true); 
+    }//GEN-LAST:event_btnSettingsBackActionPerformed
+
+    private void labelHelpIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelHelpIconMouseClicked
+        
+        panelMainMenu.setVisible(false);
+        panelHelp.setVisible(true);         
+    }//GEN-LAST:event_labelHelpIconMouseClicked
+
+    private void btnHelpBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHelpBackActionPerformed
+        
+        panelHelp.setVisible(false);
+        panelMainMenu.setVisible(true); 
+    }//GEN-LAST:event_btnHelpBackActionPerformed
+
+    private void btnHighScoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHighScoreActionPerformed
+        
+        panelMainMenu.setVisible(false);
+        panelHighscore.setVisible(true); 
+    }//GEN-LAST:event_btnHighScoreActionPerformed
+
+    private void btnAddWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWordActionPerformed
+        
+        panelMainMenu.setVisible(false);
+        panelAddWord.setVisible(true);  
+    }//GEN-LAST:event_btnAddWordActionPerformed
+
+    private void btnListWordsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListWordsActionPerformed
+        
+        panelMainMenu.setVisible(false);
+        panelListWords.setVisible(true);  
+    }//GEN-LAST:event_btnListWordsActionPerformed
+
+    private void btnHighscoreBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHighscoreBackActionPerformed
+        
+        panelHighscore.setVisible(false);
+        panelMainMenu.setVisible(true); 
+    }//GEN-LAST:event_btnHighscoreBackActionPerformed
+
+    private void btnAddWordBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWordBackActionPerformed
+        
+        panelAddWord.setVisible(false);
+        panelMainMenu.setVisible(true); 
+    }//GEN-LAST:event_btnAddWordBackActionPerformed
+
+    private void btnListWordsBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListWordsBackActionPerformed
+        
+        panelListWords.setVisible(false);
+        panelMainMenu.setVisible(true); 
+    }//GEN-LAST:event_btnListWordsBackActionPerformed
+
+    private void btnLangDiffSelectBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLangDiffSelectBackActionPerformed
+        
+        panelLangDiffSelect.setVisible(false);
+        panelMainMenu.setVisible(true); 
+    }//GEN-LAST:event_btnLangDiffSelectBackActionPerformed
+
+    private void btnEndGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndGameActionPerformed
+        
+        panelGame.setVisible(false);
+        panelHighscore.setVisible(true); 
+    }//GEN-LAST:event_btnEndGameActionPerformed
+
+    private void btnPreGameBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPreGameBackActionPerformed
+               
+        panelPreGame.setVisible(false);
+        panelLangDiffSelect.setVisible(true); 
+    }//GEN-LAST:event_btnPreGameBackActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddWord;
+    private javax.swing.JButton btnAddWordAdd;
+    private javax.swing.JButton btnAddWordBack;
+    private javax.swing.JButton btnAddWordClear;
+    private javax.swing.JButton btnConfirmLangDiff;
+    private javax.swing.JButton btnEndGame;
+    private javax.swing.JButton btnHelpBack;
+    private javax.swing.JButton btnHighScore;
+    private javax.swing.JButton btnHighscoreBack;
+    private javax.swing.JButton btnLangDiffSelectBack;
+    private javax.swing.JButton btnListWords;
+    private javax.swing.JButton btnListWordsBack;
+    private javax.swing.JButton btnListWordsSave;
+    private javax.swing.JButton btnListWordsShow;
+    private javax.swing.JButton btnNewGame;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnPreGameBack;
+    private javax.swing.JButton btnSettingsBack;
+    private javax.swing.JButton btnStartGame;
+    private javax.swing.JComboBox comBoxDiff;
+    private javax.swing.JComboBox comBoxFrom1;
+    private javax.swing.JComboBox comBoxFrom2;
+    private javax.swing.JComboBox comBoxFrom3;
+    private javax.swing.JComboBox comBoxTo1;
+    private javax.swing.JComboBox comBoxTo2;
+    private javax.swing.JComboBox comBoxTo3;
+    private javax.swing.JEditorPane jEditorPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextPane jTextPane1;
+    private javax.swing.JLabel labelAddWord;
+    private javax.swing.JLabel labelAddWordFromError;
+    private javax.swing.JLabel labelAddWordToError;
+    private javax.swing.JLabel labelCBDiff;
+    private javax.swing.JLabel labelCBFrom1;
+    private javax.swing.JLabel labelCBFrom2;
+    private javax.swing.JLabel labelCBFrom3;
+    private javax.swing.JLabel labelCBSelectType;
+    private javax.swing.JLabel labelCBTo1;
+    private javax.swing.JLabel labelCBTo2;
+    private javax.swing.JLabel labelCBTo3;
+    private javax.swing.JLabel labelEndGame;
+    private javax.swing.JLabel labelFeedback;
+    private javax.swing.JLabel labelGame;
+    private javax.swing.JLabel labelHelp;
+    private javax.swing.JLabel labelHelpIcon;
+    private javax.swing.JLabel labelHighscore;
+    private javax.swing.JLabel labelLangDiffSelect;
+    private javax.swing.JLabel labelListWords;
+    private javax.swing.JLabel labelLogo;
+    private javax.swing.JLabel labelPreGame;
+    private javax.swing.JLabel labelPreGame1;
+    private javax.swing.JLabel labelPreGame2;
+    private javax.swing.JLabel labelPreGame3;
+    private javax.swing.JLabel labelPreGame4;
+    private javax.swing.JLabel labelPreGame5;
+    private javax.swing.JLabel labelPreGame6;
+    private javax.swing.JLabel labelPreGameDiff;
+    private javax.swing.JLabel labelPreGameFrom;
+    private javax.swing.JLabel labelPreGameSelectType;
+    private javax.swing.JLabel labelPreGameTo;
+    private javax.swing.JLabel labelSettings;
+    private javax.swing.JLabel labelSettingsIcon;
+    private javax.swing.JLabel labelWordNo;
+    private javax.swing.JLabel labelWordToTranslate;
+    private javax.swing.JPanel panelAddWord;
+    private javax.swing.JPanel panelGame;
+    private javax.swing.JPanel panelGameTest;
+    private javax.swing.JPanel panelGameTest2;
+    private javax.swing.JPanel panelHelp;
+    private javax.swing.JPanel panelHighscore;
+    private javax.swing.JPanel panelLangDiffSelect;
+    private javax.swing.JPanel panelListWords;
+    private javax.swing.JPanel panelMainMenu;
+    private javax.swing.JPanel panelPreGame;
+    private javax.swing.JPanel panelSettings;
+    private javax.swing.JRadioButton radBtnSelectChoices;
+    private javax.swing.JRadioButton radBtnTypeWord;
+    private javax.swing.JScrollPane scrPaneListWords;
+    private javax.swing.JTextField txtFldAddWordFrom;
+    private javax.swing.JTextField txtFldAddWordNewLang;
+    private javax.swing.JTextField txtFldAddWordTo;
+    private javax.swing.JTextField txtFldAnswer;
+    // End of variables declaration//GEN-END:variables
 }
