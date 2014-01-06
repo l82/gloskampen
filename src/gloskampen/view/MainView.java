@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JRadioButton; 
 import javax.swing.JWindow;
 import javax.swing.SwingConstants;
+import java.util.ArrayList; //L8
 
 /**
  * Latest update: 2014-01-04 20:01
@@ -889,6 +890,16 @@ public class MainView extends javax.swing.JFrame
         btnNext.addActionListener(listener); 
     }
     
+    /**
+     * L8
+     * Add a listener for the confirm choice button button
+     * @param listener listener to add
+     */    
+    public void confirmChoiceAddListener(ActionListener listener) 
+    {        
+        btnConfirmLangDiff.addActionListener(listener); 
+    }
+    
     public void setNewGlossary(String word) 
     {        
         labelWordToTranslate.setText(word); 
@@ -935,6 +946,36 @@ public class MainView extends javax.swing.JFrame
         corrString = Integer.toString(correct);
         totString = Integer.toString(tot);        
         labelEndGame.setText("You had " + corrString + " correct answers of " + tot);
+    }
+    
+    /**
+     * L8
+     * Checks if user want to write the words him/herself or if the user want to
+     * select from a list of words
+     * @return true if user want to write own word, else false
+     */
+    public Boolean isWriteWordSelected() {
+        Boolean writeOwnWord;
+        if (radBtnTypeWord.isSelected()) {
+            writeOwnWord = true;
+        }
+        else {
+            writeOwnWord = false;
+        }
+        return writeOwnWord;
+    }
+    
+    /**
+     * L8 Writes three alternatives in text field
+     * @param wordAlternatives An arrayList with the alternatives
+     */
+    public void setWordAlternatives(ArrayList<String> wordAlternatives) {
+        String tmpString;
+        tmpString = "";
+        for (int i = 0; i < wordAlternatives.size(); i++) {
+             tmpString = tmpString + ";" + wordAlternatives.get(i);
+        }
+        txtFldAnswer.setText(tmpString);
     }
     
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
