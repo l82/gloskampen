@@ -74,6 +74,7 @@ public class GlossaryController
     private void setGameSettings() {
         writeWordSelf = mainView.isWriteWordSelected();
         glossary.setWriteWordSelf(writeWordSelf);
+        glossary.setNumberOfTrialsEachTest(3);
     }
     
     /**
@@ -145,21 +146,34 @@ public class GlossaryController
         String answer;
         String errorText;
         String newGlossary;
-        
+        int numberOfTrialsEachTest = glossary.getNumberOfTrialsEachTest();
+        int currentTrial = glossary.getCurrentNumberOfTrials();
+        Boolean newTrial;
+       
         answer = mainView.getAnswer();
         validAnswer = validateAnswer(answer);
         
         if (validAnswer >= 0) 
         {
             errorText = generateResult(answer);
-            mainView.setErrorText(errorText);
+            newTrial = glossary.getNewTrial(); //Must be executed after generateResult
+            
             if (errorText.equals("")) 
             {
                 String currentRightAnswer = glossary.getCorrectAnswer();
                 mainView.setCorrectText("Correct answer :-) " + currentRightAnswer);
                 mainView.setEmptyAnswer();
             }
-            if (!glossary.checkEndOfTest()) 
+            else if (newTrial) {
+                errorText = errorText + " Try again";
+            }
+            else {
+                //Do nothing-already generated
+            }
+            mainView.setErrorText(errorText);
+            
+            
+            if (!glossary.checkEndOfTest() && !newTrial) 
             {
                 int glossaryNumber = glossary.getNumberOfExecutedGlossaries() + 1;
                 newGlossary = generateNewGlossary();
@@ -171,12 +185,15 @@ public class GlossaryController
                     mainView.setWordAlternatives(threeWords);
                 }
             }
-            else 
+            else if (!newTrial)  
             {
                 mainView.setEndText(glossary.getTotNumberOfGlossaries(), 
                         (glossary.getTotNumberOfGlossaries() - glossary.getNumberOfFailedGlossaries()));
                 mainView.setNewGlossary("");
                 mainView.setEmptyAnswer();
+            }
+            else {
+                //Do nothing
             }
         }
     }
@@ -188,7 +205,6 @@ public class GlossaryController
         
         correctAnswer = glossary.validateGlossary(answer);
         
-        //TODO: Add check for three trials
         if  (correctAnswer.equals("")) 
         {
             errorText = "";

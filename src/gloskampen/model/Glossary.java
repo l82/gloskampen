@@ -27,6 +27,7 @@ public class Glossary {
     private int currentNumberOfTrials;
     private Boolean writeWordSelf;
     private static int totNumWordsInTest = 10;
+    private Boolean lastIsCorrect;
     
     public Glossary() {
         totNumberOfGlossaries = totNumWordsInTest;
@@ -36,8 +37,9 @@ public class Glossary {
         listFailedCounter = 0;
         listOfFailedWords = new ArrayList<>();
         listOfAlreadyUsedWords = new ArrayList<>();
-        currentNumberOfTrials = 0;
+        currentNumberOfTrials = 1;
         writeWordSelf = true;
+        lastIsCorrect = false;
     }
     
     public void setWordList(gloskampen.model.WordList wordList) {
@@ -144,6 +146,8 @@ public class Glossary {
             correct = currentRightAnswer;
             answerIsCorrect = false;
         }
+        lastIsCorrect = answerIsCorrect;
+        System.out.println("L8 lastiscorrect " + lastIsCorrect);
         setResultData(answerIsCorrect);
         return correct;
     }
@@ -162,7 +166,9 @@ public class Glossary {
             }
             currentNumberOfTrials++;
         }
-        numberOfExecutedGlossaries++;
+        if (!getNewTrial()) {
+            numberOfExecutedGlossaries++;
+        }
     }
     
     /**
@@ -283,8 +289,30 @@ public class Glossary {
         writeWordSelf = inWriteWordSelf;
     }
     
+    public void setNumberOfTrialsEachTest(int inNumberOfTrials) {
+        numberOfTrialsEachTest = inNumberOfTrials;
+    }
+    
     public String getCorrectAnswer() {
         return currentRightAnswer;
     }
     
+    public int getNumberOfTrialsEachTest() {
+        return numberOfTrialsEachTest;
+    }
+    
+    public int getCurrentNumberOfTrials() {
+        return currentNumberOfTrials;
+    }
+    
+    public Boolean getNewTrial() {
+        Boolean newTrial = false;  //Set to false and only changed if needed
+        if ((currentNumberOfTrials < numberOfTrialsEachTest) && !lastIsCorrect) {
+            newTrial = true;
+        }       
+        System.out.println("L8 getNewTrial cur " + currentNumberOfTrials + 
+                " numEachTest "  +  numberOfTrialsEachTest + " last is OK " + 
+                lastIsCorrect);
+        return newTrial;
+    }
 }
