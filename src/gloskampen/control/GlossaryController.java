@@ -175,6 +175,7 @@ public class GlossaryController
             
             if (!glossary.checkEndOfTest() && !newTrial) 
             {
+                System.out.println("L8 no new trial and not end of test");
                 int glossaryNumber = glossary.getNumberOfExecutedGlossaries() + 1;
                 newGlossary = generateNewGlossary();
                 mainView.setGlossaryNumber(glossaryNumber);

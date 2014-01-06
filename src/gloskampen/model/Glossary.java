@@ -158,9 +158,10 @@ public class Glossary {
             currentNumberOfTrials = 0;
         }
         else {
-            if (currentNumberOfTrials == 0) {
+            if (currentNumberOfTrials == 1) { //TODO L8
                 int lastElement = listOfAlreadyUsedWords.size();
                 String failedWord = listOfAlreadyUsedWords.get(lastElement-1);
+                System.out.println("L8 to add word into failed list " + failedWord);
                 listOfFailedWords.add(failedWord);
                 numberOfFailedGlossaries++;
             }
@@ -236,6 +237,9 @@ public class Glossary {
         {
             end = true;
         }
+        System.out.println("L8 checkEndOfTest numberOfExecutedGlossaries=" + numberOfExecutedGlossaries + 
+                "totNumberOfGlossaries=" + totNumberOfGlossaries + "numberOfFailedGlossaries=" +
+                numberOfFailedGlossaries + "end=" + end);
         return end;
     }
     
