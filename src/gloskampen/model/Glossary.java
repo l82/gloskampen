@@ -154,6 +154,10 @@ public class Glossary {
         return correct;
     }
     
+    public void setTimeoutData() {
+        setResultData(false);
+    }
+    
     private void setResultData(Boolean answerIsCorrect) 
     {        
         if (answerIsCorrect) 
@@ -340,9 +344,6 @@ public class Glossary {
         if ((currentNumberOfTrials < numberOfTrialsEachTest) && !lastIsCorrect) {
             newTrial = true;
         }      
-        System.out.println("L8 getNewTrial cur " + currentNumberOfTrials + 
-                " numEachTest "  +  numberOfTrialsEachTest + " last is OK " + 
-                lastIsCorrect);
         return newTrial;
     }
 }

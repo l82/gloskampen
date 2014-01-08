@@ -47,7 +47,7 @@ public class GlossaryController implements Callback
             public void actionPerformed(ActionEvent e)
             {
                 generateNewGame();
-                timerHandling();
+                startTimer();
             }
         }); 
         
@@ -56,7 +56,9 @@ public class GlossaryController implements Callback
             @Override
             public void actionPerformed(ActionEvent e)
             {
-               checkAndGenerateNewGlossary();               
+               checkAndGenerateNewGlossary();
+               stopTimer();
+               startTimer();
             }
         }); 
         
@@ -158,18 +160,17 @@ public class GlossaryController implements Callback
         validAnswer = validateCorrectSyntaxAnswer(answer);
         
         if (validAnswer >= 0) 
-            printAndFixNextStep(answer);
+            printAndFixNextStep(answer, false);
         }
         
-    private void printAndFixNextStep(String answer) 
+    private void printAndFixNextStep(String answer, Boolean timeout) 
     {
         String errorText;
         Boolean newTrial;
         Boolean continueWithNextGlossary;
         
-        errorText = generateResult(answer);
+        errorText = generateResult(answer, timeout);
         newTrial = glossary.getNewTrial(); //Must be executed after generateResult
-        continueWithNextGlossary = false;
         
         //Answer is correct
         if (errorText.equals("")) {
@@ -178,14 +179,26 @@ public class GlossaryController implements Callback
             glossary.resetCurrentNumberOfTrials();
         }
         else if (newTrial) { //A new trial should be done
-            errorText = "Tyvärr, " + answer + " är inte rätt. Försök igen!";    
+            if (timeout == false) {
+                errorText = "Tyvärr, " + answer + " är inte rätt. Försök igen!";    
+            }
+            else {
+                startTimer();
+                errorText = "Tyvärr frågan timade ut. Försök igen";
+            }
+            System.out.println("L8 should write error text " + errorText);
             mainView.setErrorText(errorText);
             mainView.setEmptyAnswer();
             continueWithNextGlossary = false;
         }
         else { //Answer is not ok but max number of trials are reached
-            String currentRightAnswer = glossary.getCorrectAnswer();    
-            errorText = "Tyvärr, " + answer + " är inte rätt. Rätt svar är " + currentRightAnswer + "!";    
+            String currentRightAnswer = glossary.getCorrectAnswer();
+            if (timeout == false) {
+                errorText = "Tyvärr, " + answer + " är inte rätt. Rätt svar är " + currentRightAnswer + "!";    
+            }
+            else {
+                errorText = "Tyvärr frågan timade ut.";
+            }
             mainView.setErrorText(errorText);
             mainView.setEmptyAnswer();
             continueWithNextGlossary = true;
@@ -193,6 +206,7 @@ public class GlossaryController implements Callback
         }
            
         if (continueWithNextGlossary) {
+            System.out.println("L8 should not be here if next glossary should not be shown");
             printDataForNextStep();
         }
     }
@@ -226,22 +240,28 @@ public class GlossaryController implements Callback
         mainView.setEmptyAnswer();
     }
     
-    private String generateResult(String answer) 
+    private String generateResult(String answer, Boolean timeout) 
     {
         String correctAnswer;
         String errorText;
         
         correctAnswer = glossary.validateGlossary(answer);
-        
-        if  (correctAnswer.equals("")) 
-        {
-            errorText = "";
+        if (timeout == false) {
+            
+            if  (correctAnswer.equals("")) 
+            {
+                errorText = "";
+            }
+            else 
+            {
+                errorText = "Du svarade '" + answer + "'. Rätt svar är " +
+                        correctAnswer + ".";
+            }    
         }
-        else 
-        {
-            errorText = "Du svarade '" + answer + "'. Rätt svar är " +
-                    correctAnswer + ".";
-        }    
+        else {
+            errorText = "Frågan timade ut. ";
+        }
+            
         return(errorText);
     }
        
@@ -298,14 +318,23 @@ public class GlossaryController implements Callback
         return newGlossary;
     }    
     
-    private void timerHandling() {
+    private void startTimer() {
         
+        System.out.println("L8 start timer");
         if (timerStarted == false) {
             timer = new Timer(20000, this);
             timerStarted = true;
             timer.start();
         }
         else {
+            System.out.println("Previous timer not stopped. An error in code!");
+        }
+    }
+    
+    private void stopTimer() {
+        
+        System.out.println("L8 stop timer");
+        if (timerStarted == true) {
             timerStarted = false;
             try {
                 timer.interrupt();
@@ -315,10 +344,18 @@ public class GlossaryController implements Callback
                 System.out.println("Error: " + itse.getMessage());
             }
         }
+        else {
+            System.out.println("Previous timer was already stopped. An error in code!");
+        }
     }
     
     @Override
     public void callback() {
+        String enteredChars;
+        
         System.out.println("L8 callback");
+        stopTimer();
+        enteredChars = mainView.getAnswer();
+        printAndFixNextStep(enteredChars, true);
     }
 }

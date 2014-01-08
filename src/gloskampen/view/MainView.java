@@ -1307,6 +1307,7 @@ public class MainView extends javax.swing.JFrame
     
     public void setErrorText(String errorMessage) 
     {        
+        System.out.println("L8 setErrorText");
         labelFeedback.setOpaque(true);        
         labelFeedback.setForeground(Color.red); 
         labelFeedback.setText(errorMessage);
@@ -1385,6 +1386,7 @@ public class MainView extends javax.swing.JFrame
     
     public void setEmptyFeedbackText()
     {
+        System.out.println("L8 setEmptyFeedBackText");
         labelFeedback.setText("");
         labelFeedback.setOpaque(false);
                 
@@ -1506,7 +1508,8 @@ public class MainView extends javax.swing.JFrame
     }//GEN-LAST:event_chBoxThreeChoicesYesActionPerformed
 
     private void txtFldAnswerFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtFldAnswerFocusGained
-                        
+               
+        System.out.println("L8 txtFldAnswerFocusGained");
         labelFeedback.setOpaque(false);
         labelFeedback.setText("");
                 
