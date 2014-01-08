@@ -25,6 +25,14 @@
   <Layout class="org.netbeans.modules.form.compat2.layouts.DesignCardLayout"/>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="panelMainMenu">
+      <Properties>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[960, 750]"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}&#xa;"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card2"/>
@@ -36,17 +44,6 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="labelLogo" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="labelSettingsIcon" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="labelHelpIcon" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="393" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -56,8 +53,18 @@
                               <Component id="btnNewGame" alignment="0" min="-2" pref="145" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          <Component id="labelSettingsIcon" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="labelHelpIcon" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="labelLogo" min="-2" pref="250" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="395" max="32767" attributes="0"/>
+                  <EmptySpace pref="422" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -66,12 +73,12 @@
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="labelLogo" min="-2" pref="38" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="labelSettingsIcon" min="-2" pref="36" max="-2" attributes="0"/>
-                      <Component id="labelHelpIcon" min="-2" pref="36" max="-2" attributes="0"/>
+                      <Component id="labelHelpIcon" min="-2" pref="46" max="-2" attributes="0"/>
+                      <Component id="labelSettingsIcon" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Component id="btnNewGame" min="-2" pref="77" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="btnHighScore" min="-2" pref="77" max="-2" attributes="0"/>
@@ -79,7 +86,7 @@
                   <Component id="btnAddWord" min="-2" pref="77" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                   <Component id="btnListWords" min="-2" pref="77" max="-2" attributes="0"/>
-                  <EmptySpace pref="223" max="32767" attributes="0"/>
+                  <EmptySpace pref="171" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -88,14 +95,26 @@
         <Component class="javax.swing.JLabel" name="labelLogo">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Stencil Std" size="24" style="1"/>
+              <Font name="Stencil Std" size="31" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="4d" green="6f" red="9a" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="GLOSKAMPEN"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnNewGame">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="17" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Nytt spel"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
+            <Property name="focusPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNewGameActionPerformed"/>
@@ -103,7 +122,15 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnHighScore">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="17" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Topplista"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHighScoreActionPerformed"/>
@@ -111,7 +138,15 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnAddWord">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="17" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="L&#xe4;gg till glosa"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddWordActionPerformed"/>
@@ -119,7 +154,15 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnListWords">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="17" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Lista glosor"/>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
+                <BevelBorder/>
+              </Border>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnListWordsActionPerformed"/>
@@ -128,7 +171,7 @@
         <Component class="javax.swing.JLabel" name="labelSettingsIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/gloskampen/view/images/settings.png"/>
+              <Image iconType="3" name="/gloskampen/view/images/wrench2.png"/>
             </Property>
           </Properties>
           <Events>
@@ -138,7 +181,7 @@
         <Component class="javax.swing.JLabel" name="labelHelpIcon">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/gloskampen/view/images/help.png"/>
+              <Image iconType="3" name="/gloskampen/view/images/help6.png"/>
             </Property>
           </Properties>
           <Events>
@@ -148,6 +191,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelLangDiffSelect">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card3"/>
@@ -157,40 +203,39 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                  <Component id="btnLangDiffSelectBack" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="797" max="32767" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnConfirmLangDiff" min="-2" pref="117" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="137" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="btnConfirmLangDiff" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="384" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="2" attributes="0">
+                              <Component id="labelLangDiffSelect" alignment="2" min="-2" pref="123" max="-2" attributes="0"/>
                               <Component id="labelCBFrom1" alignment="2" min="-2" pref="97" max="-2" attributes="0"/>
                               <Component id="comBoxFrom1" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="labelCBTo1" alignment="2" min="-2" pref="103" max="-2" attributes="0"/>
                               <Component id="comBoxTo1" alignment="2" min="-2" max="-2" attributes="0"/>
                               <Component id="labelCBDiff" alignment="2" min="-2" pref="120" max="-2" attributes="0"/>
                               <Component id="comBoxDiff" alignment="2" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelCBSelectType" alignment="2" min="-2" pref="155" max="-2" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="labelCBTo1" min="-2" pref="103" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="labelRBSelectType" alignment="2" min="-2" pref="155" max="-2" attributes="0"/>
                               <Group type="102" alignment="2" attributes="0">
                                   <Component id="radBtnSelectChoices" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                   <Component id="radBtnTypeWord" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="labelLangDiffSelect" alignment="2" min="-2" pref="123" max="-2" attributes="0"/>
+                              <Component id="labelChBThreeChoices" alignment="2" min="-2" max="-2" attributes="0"/>
+                              <Component id="chBoxThreeChoicesYes" alignment="2" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="401" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                          <Component id="btnLangDiffSelectBack" min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <EmptySpace pref="387" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -199,7 +244,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="labelLangDiffSelect" min="-2" pref="29" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                   <Component id="labelCBFrom1" min="-2" pref="23" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="comBoxFrom1" min="-2" max="-2" attributes="0"/>
@@ -212,15 +257,19 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="comBoxDiff" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="labelCBSelectType" min="-2" pref="22" max="-2" attributes="0"/>
+                  <Component id="labelRBSelectType" min="-2" pref="22" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="radBtnSelectChoices" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="radBtnTypeWord" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                  <Component id="labelChBThreeChoices" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="chBoxThreeChoicesYes" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="61" max="32767" attributes="0"/>
                   <Component id="btnConfirmLangDiff" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="111" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="btnLangDiffSelectBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               </Group>
@@ -230,19 +279,28 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelLangDiffSelect">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelLangDiffSelect)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelCBFrom1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="V&#xe4;lj fr&#xe5;n-spr&#xe5;k:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comBoxFrom1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Svenska"/>
@@ -257,13 +315,19 @@
         <Component class="javax.swing.JLabel" name="labelCBTo1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="V&#xe4;lj till-spr&#xe5;k:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comBoxTo1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Engelska"/>
@@ -275,13 +339,19 @@
         <Component class="javax.swing.JLabel" name="labelCBDiff">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="V&#xe4;lj sv&#xe5;righetsgrad:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comBoxDiff">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="4">
                 <StringItem index="0" value="Vilken som"/>
@@ -292,16 +362,22 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="labelCBSelectType">
+        <Component class="javax.swing.JLabel" name="labelRBSelectType">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="V&#xe4;lj ord eller skriv sj&#xe4;lv:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="radBtnSelectChoices">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="V&#xe4;lj ord"/>
           </Properties>
           <Events>
@@ -310,13 +386,16 @@
         </Component>
         <Component class="javax.swing.JRadioButton" name="radBtnTypeWord">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Skriv sj&#xe4;lv"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnConfirmLangDiff">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Californian FB" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Bekr&#xe4;fta val"/>
           </Properties>
@@ -326,15 +405,43 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnLangDiffSelectBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tillbaka"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLangDiffSelectBackActionPerformed"/>
           </Events>
         </Component>
+        <Component class="javax.swing.JLabel" name="labelChBThreeChoices">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Tre f&#xf6;rs&#xf6;k p&#xe5; varje ord?"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="chBoxThreeChoicesYes">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Ja"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chBoxThreeChoicesYesActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelPreGame">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card4"/>
@@ -366,7 +473,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace min="0" pref="297" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="230" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
@@ -381,7 +488,7 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                          <Component id="btnPreGameBack" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnPreGameBack" min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -417,7 +524,7 @@
                       <Component id="labelPreGame6" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="labelPreGameSelectType" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="198" max="32767" attributes="0"/>
+                  <EmptySpace pref="176" max="32767" attributes="0"/>
                   <Component id="btnStartGame" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   <Component id="btnPreGameBack" min="-2" max="-2" attributes="0"/>
@@ -429,13 +536,16 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelPreGame">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelPreGame)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnStartGame">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Californian FB" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Starta!"/>
           </Properties>
@@ -445,56 +555,119 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGame1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Om du vill starta spelet med nedanst&#xe5;ende inst&#xe4;llningar, tryck p&#xe5; Starta!"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGame2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Om du vill &#xe4;ndra n&#xe5;gon inst&#xe4;llning, tryck Tillbaka."/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGame3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fr&#xe5;n-spr&#xe5;k:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGame4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Till-spr&#xe5;k:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGameFrom">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGameTo">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGame5">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Sv&#xe5;righetsgrad:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGameDiff">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGame6">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="V&#xe4;lj ord / skriv sj&#xe4;lv:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelPreGameSelectType">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;value&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnPreGameBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tillbaka"/>
           </Properties>
           <Events>
@@ -504,6 +677,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelGame">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card5"/>
@@ -516,31 +692,45 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="panelGameTest" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="btnEndGame" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="labelFeedback" min="-2" pref="275" max="-2" attributes="0"/>
-                                  <Component id="labelEndGame" alignment="1" min="-2" pref="275" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="labelWordNo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="labelWordToTranslate" min="-2" pref="108" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="labelGame" min="-2" pref="96" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="labelEndGame" min="-2" pref="275" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="txtFldAnswer" max="32767" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnNext" min="-2" pref="73" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="38" pref="38" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="scrPaneFeedback2" alignment="1" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="txtFldAnswer" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnNext" min="-2" pref="73" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="labelWordNo" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="labelWordToTranslate" min="-2" pref="108" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="comBoxThreeWords" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="labelCBThreeWords" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="labelGame" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="648" pref="648" max="-2" attributes="0"/>
+                  <Component id="btnEndGame" min="-2" pref="147" max="-2" attributes="0"/>
+                  <EmptySpace min="138" pref="138" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -554,16 +744,21 @@
                       <Component id="labelWordToTranslate" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                       <Component id="labelWordNo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="comBoxThreeWords" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelCBThreeWords" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnNext" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFldAnswer" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtFldAnswer" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="labelFeedback" min="-2" pref="22" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="labelEndGame" min="-2" pref="25" max="-2" attributes="0"/>
-                  <EmptySpace pref="391" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="scrPaneFeedback2" min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                  <Component id="labelEndGame" min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace pref="275" max="32767" attributes="0"/>
                   <Component id="btnEndGame" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
               </Group>
@@ -578,41 +773,62 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelGame">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelGame)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnNext">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
+              <Font name="Californian FB" size="14" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Svara"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFldAnswer">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtFldAnswerFocusGained"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelWordToTranslate">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="22" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;word to translate&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelWordNo">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="22" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;word no&gt;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="labelFeedback">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;feedback text&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelEndGame">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&lt;end label&gt;"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnEndGame">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Avsluta spelomg&#xe5;ng"/>
           </Properties>
           <Events>
@@ -679,9 +895,81 @@
             </Container>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JComboBox" name="comBoxThreeWords">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="ord1"/>
+                <StringItem index="1" value="ord2"/>
+                <StringItem index="2" value="ord3"/>
+              </StringArray>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelCBThreeWords">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="V&#xe4;lj ord i listan"/>
+          </Properties>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="scrPaneFeedback2">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+            <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+          </Properties>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Container class="javax.swing.JScrollPane" name="scrPaneFeedback1">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
+                <Property name="verticalScrollBarPolicy" type="int" value="21"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="labelFeedback">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Californian FB" size="14" style="1"/>
+                    </Property>
+                    <Property name="lineWrap" type="boolean" value="true"/>
+                    <Property name="rows" type="int" value="5"/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[275, 89]"/>
+                    </Property>
+                    <Property name="opaque" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelSettings">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card6"/>
@@ -693,7 +981,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                  <Component id="btnSettingsBack" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnSettingsBack" min="-2" pref="81" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -708,7 +996,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                   <Component id="labelSettings" min="-2" pref="23" max="-2" attributes="0"/>
-                  <EmptySpace pref="590" max="32767" attributes="0"/>
+                  <EmptySpace pref="588" max="32767" attributes="0"/>
                   <Component id="btnSettingsBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
               </Group>
@@ -718,11 +1006,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelSettings">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelSettings)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnSettingsBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tillbaka"/>
           </Properties>
           <Events>
@@ -732,6 +1026,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelHelp">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card7"/>
@@ -743,7 +1040,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                  <Component id="btnHelpBack" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnHelpBack" min="-2" pref="81" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -758,7 +1055,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   <Component id="labelHelp" min="-2" pref="24" max="-2" attributes="0"/>
-                  <EmptySpace pref="577" max="32767" attributes="0"/>
+                  <EmptySpace pref="575" max="32767" attributes="0"/>
                   <Component id="btnHelpBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               </Group>
@@ -768,11 +1065,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelHelp">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelHelp)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnHelpBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tillbaka"/>
           </Properties>
           <Events>
@@ -782,6 +1085,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelHighscore">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card8"/>
@@ -795,11 +1101,11 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                          <Component id="btnHighscoreBack" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnHighscoreBack" min="-2" pref="177" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="228" max="-2" attributes="0"/>
-                          <Component id="jScrollPane1" min="-2" pref="504" max="-2" attributes="0"/>
+                          <Component id="scrPaneHighscore" min="-2" pref="504" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="201" max="32767" attributes="0"/>
@@ -817,8 +1123,8 @@
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Component id="labelHighscore" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="216" max="-2" attributes="0"/>
-                  <EmptySpace pref="337" max="32767" attributes="0"/>
+                  <Component id="scrPaneHighscore" min="-2" pref="216" max="-2" attributes="0"/>
+                  <EmptySpace pref="335" max="32767" attributes="0"/>
                   <Component id="btnHighscoreBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
@@ -828,18 +1134,24 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelHighscore">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelHighscore)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnHighscoreBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tillbaka till huvudmenyn"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHighscoreBackActionPerformed"/>
           </Events>
         </Component>
-        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+        <Container class="javax.swing.JScrollPane" name="scrPaneHighscore">
           <AuxValues>
             <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
           </AuxValues>
@@ -849,7 +1161,7 @@
             <Component class="javax.swing.JTextPane" name="jTextPane1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="12" style="0"/>
+                  <Font name="Californian FB" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Namn&#x9;&#x9;Typ&#x9;&#x9;Datum&#x9;&#x9;Po&#xe4;ng&#xa;&#xa;Pelle&#x9;&#x9;n/a&#x9;&#x9;2014-01-01&#x9;&#x9;10"/>
               </Properties>
@@ -859,6 +1171,9 @@
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelAddWord">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card9"/>
@@ -870,23 +1185,9 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnAddWordClear" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-                                  <Component id="btnAddWordAdd" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="comBoxFrom2" min="-2" max="-2" attributes="0"/>
-                              <Component id="labelCBTo2" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
-                              <Component id="labelCBFrom2" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
-                              <Component id="comBoxTo2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                          <Component id="btnAddWordBack" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAddWordBack" min="-2" pref="81" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
@@ -895,16 +1196,39 @@
                           <Component id="labelAddWordFromError" min="-2" pref="139" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
-                          <Component id="txtFldAddWordTo" min="-2" pref="219" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                                  <Component id="txtFldAddWordTo" min="-2" pref="219" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="btnAddWordClear" min="-2" pref="67" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                                          <Component id="btnAddWordAdd" min="-2" pref="113" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="comBoxFrom2" min="-2" max="-2" attributes="0"/>
+                                      <Component id="labelCBTo2" alignment="0" min="-2" pref="27" max="-2" attributes="0"/>
+                                      <Component id="labelCBFrom2" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="comBoxTo2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtFldAddWordNewLang" min="-2" pref="166" max="-2" attributes="0"/>
+                              <Component id="labelSubmitNewLang" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="txtFldAddWordNewLang" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="btnNewLangOK" min="-2" pref="51" max="-2" attributes="0"/>
+                              </Group>
                               <Component id="labelAddWordToError" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="426" max="32767" attributes="0"/>
+                  <EmptySpace pref="369" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -928,18 +1252,22 @@
                       <Component id="labelAddWordFromError" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                  <Component id="labelCBTo2" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="labelCBTo2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="labelSubmitNewLang" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="comBoxTo2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtFldAddWordNewLang" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnNewLangOK" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtFldAddWordTo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="labelAddWordToError" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="149" max="32767" attributes="0"/>
+                  <EmptySpace pref="133" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="btnAddWordAdd" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAddWordClear" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -954,11 +1282,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelAddWord">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelAddWord)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAddWordBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tillbaka"/>
           </Properties>
           <Events>
@@ -967,6 +1301,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labelCBFrom2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fr&#xe5;n:"/>
           </Properties>
         </Component>
@@ -974,6 +1314,9 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="comBoxFrom2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Svenska"/>
@@ -984,16 +1327,31 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labelAddWordFromError">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;input error field&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="labelCBTo2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Till:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comBoxTo2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Engelska"/>
@@ -1006,27 +1364,58 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labelAddWordToError">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="&lt;input error field&gt;"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtFldAddWordNewLang">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Nytt spr&#xe5;k"/>
-          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAddWordAdd">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="L&#xe4;gg till glosa"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAddWordClear">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Rensa"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labelSubmitNewLang">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Nytt spr&#xe5;k:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnNewLangOK">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="OK"/>
           </Properties>
         </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="panelListWords">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPanel()&#xa;{&#xa;    // test&#xa;    @Override&#xa;    protected void paintComponent(Graphics g) &#xa;    {&#xa;        super.paintComponent(g);&#xa;        // paint the background image and scale it to fill the entire space&#xa;        g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);&#xa;    }&#xa;}"/>
+      </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
           <CardConstraints cardName="card10"/>
@@ -1040,7 +1429,7 @@
                   <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
-                          <Component id="btnListWordsBack" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnListWordsBack" min="-2" pref="81" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="392" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="0" attributes="0">
@@ -1057,7 +1446,7 @@
                               <Component id="btnListWordsShow" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="btnListWordsSave" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnListWordsSave" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                       <Component id="labelListWords" alignment="1" min="-2" pref="104" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="397" max="32767" attributes="0"/>
@@ -1081,7 +1470,7 @@
                   <Component id="scrPaneListWords" min="-2" pref="370" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="btnListWordsSave" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="77" max="32767" attributes="0"/>
+                  <EmptySpace pref="71" max="32767" attributes="0"/>
                   <Component id="btnListWordsBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               </Group>
@@ -1091,11 +1480,17 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="labelListWords">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="(panelListWords)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnListWordsBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tillbaka"/>
           </Properties>
           <Events>
@@ -1115,11 +1510,20 @@
         </Container>
         <Component class="javax.swing.JLabel" name="labelCBFrom3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fr&#xe5;n:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comBoxFrom3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Svenska"/>
@@ -1130,11 +1534,20 @@
         </Component>
         <Component class="javax.swing.JLabel" name="labelCBTo3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Till:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="comBoxTo3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
                 <StringItem index="0" value="Engelska"/>
@@ -1145,11 +1558,17 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnListWordsSave">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Spara &#xe4;ndringar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnListWordsShow">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Californian FB" size="14" style="1"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Visa lista"/>
           </Properties>
         </Component>

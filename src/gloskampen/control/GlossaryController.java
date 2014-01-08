@@ -16,7 +16,6 @@ import java.util.ArrayList;
  */
 public class GlossaryController 
 {    
-    
     private gloskampen.model.Glossary glossary;
     gloskampen.view.MainView mainView;    
     private Boolean writeWordSelf;
@@ -28,8 +27,7 @@ public class GlossaryController
      * @param totNumWordsInTest Total number of words in a test
      */
     public GlossaryController(gloskampen.view.MainView inMainView, int totNumWordsInTest)
-    {        
-               
+    {              
         mainView = inMainView;
         writeWordSelf = true;
     }
@@ -39,8 +37,7 @@ public class GlossaryController
      * @param inMainView 
      */
     public void intiateGlossaryControlerGame(gloskampen.view.MainView inMainView)  
-    {
-        
+    {        
         inMainView.initiateAddListener(new ActionListener() 
         {                
             @Override
@@ -68,6 +65,17 @@ public class GlossaryController
             }
         }); 
         
+        inMainView.addEndGameListener(new ActionListener() 
+        {                
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+               String user;
+               user = mainView.getUser();
+               //user.checkAndAddUser(user)
+            }
+        }); 
+        
         glossary = new gloskampen.model.Glossary();
     }
     
@@ -87,9 +95,6 @@ public class GlossaryController
         String word;
         word = "";
         
-        //TODO: Check for failed array if numberOfExecutedGlossaries are done.
-        //TODO: Check if currentNumberOfTrials is less than numberOfTrialsEachTest:
-        //If it is the same glossary should be returned.
         word = glossary.randomiseOneGlossary();
         return word;
     }
@@ -137,66 +142,84 @@ public class GlossaryController
     public Boolean validateUserName() 
     {        
         //TODO: Some code;.-)
-        return true;
+        return true; 
     }
     
     private void checkAndGenerateNewGlossary() 
     {
         int validAnswer; 
         String answer;
-        String errorText;
-        String newGlossary;
-        int numberOfTrialsEachTest = glossary.getNumberOfTrialsEachTest();
-        int currentTrial = glossary.getCurrentNumberOfTrials();
-        Boolean newTrial;
        
         answer = mainView.getAnswer();
-        validAnswer = validateAnswer(answer);
+        validAnswer = validateCorrectSyntaxAnswer(answer);
         
         if (validAnswer >= 0) 
-        {
-            errorText = generateResult(answer);
-            newTrial = glossary.getNewTrial(); //Must be executed after generateResult
-            
-            if (errorText.equals("")) 
-            {
-                String currentRightAnswer = glossary.getCorrectAnswer();
-                mainView.setCorrectText("Correct answer :-) " + currentRightAnswer);
-                mainView.setEmptyAnswer();
-            }
-            else if (newTrial) {
-                errorText = errorText + " Try again";
-            }
-            else {
-                //Do nothing-already generated
-            }
-            mainView.setErrorText(errorText);
-            
-            
-            if (!glossary.checkEndOfTest() && !newTrial) 
-            {
-                System.out.println("L8 no new trial and not end of test");
-                int glossaryNumber = glossary.getNumberOfExecutedGlossaries() + 1;
-                newGlossary = generateNewGlossary();
-                mainView.setGlossaryNumber(glossaryNumber);
-                mainView.setNewGlossary(newGlossary); 
-                if (writeWordSelf != true) {
-                    ArrayList<String> threeWords;
-                    threeWords = glossary.randomiseThreeAlternatives();
-                    mainView.setWordAlternatives(threeWords);
-                }
-            }
-            else if (!newTrial)  
-            {
-                mainView.setEndText(glossary.getTotNumberOfGlossaries(), 
-                        (glossary.getTotNumberOfGlossaries() - glossary.getNumberOfFailedGlossaries()));
-                mainView.setNewGlossary("");
-                mainView.setEmptyAnswer();
-            }
-            else {
-                //Do nothing
-            }
+            printAndFixNextStep(answer);
         }
+        
+    private void printAndFixNextStep(String answer) 
+    {
+        String errorText;
+        Boolean newTrial;
+        Boolean continueWithNextGlossary;
+        
+        errorText = generateResult(answer);
+        newTrial = glossary.getNewTrial(); //Must be executed after generateResult
+        continueWithNextGlossary = false;
+        
+        //Answer is correct
+        if (errorText.equals("")) {
+            printOkMessage();
+            continueWithNextGlossary = true;
+            glossary.resetCurrentNumberOfTrials();
+        }
+        else if (newTrial) { //A new trial should be done
+            errorText = "Tyvärr, " + answer + " är inte rätt. Försök igen!";    
+            mainView.setErrorText(errorText);
+            mainView.setEmptyAnswer();
+            continueWithNextGlossary = false;
+        }
+        else { //Answer is not ok but max number of trials are reached
+            String currentRightAnswer = glossary.getCorrectAnswer();    
+            errorText = "Tyvärr, " + answer + " är inte rätt. Rätt svar är " + currentRightAnswer + "!";    
+            mainView.setErrorText(errorText);
+            mainView.setEmptyAnswer();
+            continueWithNextGlossary = true;
+            glossary.resetCurrentNumberOfTrials();
+        }
+           
+        if (continueWithNextGlossary) {
+            printDataForNextStep();
+        }
+    }
+    
+    private void printDataForNextStep() {
+        if (glossary.checkEndOfTest()) {
+            mainView.setEndText(glossary.getTotNumberOfGlossaries(), 
+                (glossary.getTotNumberOfGlossaries() - glossary.getNumberOfFailedGlossaries()));
+            mainView.setNewGlossary("");
+            mainView.setEmptyAnswer();    
+            mainView.disableAnswerButton();
+        }
+        else {
+            String newGlossary;
+            int glossaryNumber = glossary.getNumberOfExecutedGlossaries() + 1;
+            newGlossary = generateNewGlossary();
+            mainView.setGlossaryNumber(glossaryNumber);
+            mainView.setNewGlossary(newGlossary); 
+                
+            if (writeWordSelf != true) {
+                ArrayList<String> threeWords;
+                threeWords = glossary.randomiseThreeAlternatives();
+                mainView.setWordAlternatives(threeWords);
+            }
+         }
+    }
+    
+    private void printOkMessage() {
+        String currentRightAnswer = glossary.getCorrectAnswer();             
+        mainView.setCorrectText("Bra! Rätt svar är " + currentRightAnswer + "!");
+        mainView.setEmptyAnswer();
     }
     
     private String generateResult(String answer) 
@@ -212,25 +235,25 @@ public class GlossaryController
         }
         else 
         {
-            errorText = "You entered " + answer + " correct answer is " +
-                    correctAnswer;
+            errorText = "Du svarade '" + answer + "'. Rätt svar är " +
+                    correctAnswer + ".";
         }    
         return(errorText);
     }
        
-    private int validateAnswer(String answer) 
+    private int validateCorrectSyntaxAnswer(String answer) 
     {
         int result;
         result = 0;
 
         if (answer.isEmpty()) 
         {
-            mainView.setErrorText("You must provide a text");
+            mainView.setErrorText("Du måste skriva något");
             result = -1;
         }
         if (answer.equals("")) 
         {
-            mainView.setErrorText("You must provide a text");
+            mainView.setErrorText("Du måste skriva något");
             result = -1;
         }
         return result;
@@ -238,6 +261,8 @@ public class GlossaryController
         
     private void generateNewGame() 
     {
+        resetFieldsAndValues();
+        
         ArrayList<String> threeWords;
         int numberOfExecutedGlossaries;
         String newGlossary;
@@ -245,11 +270,22 @@ public class GlossaryController
         numberOfExecutedGlossaries = glossary.getNumberOfExecutedGlossaries() + 1;
         mainView.setGlossaryNumber(numberOfExecutedGlossaries);
         mainView.setNewGlossary(newGlossary);
-        if (writeWordSelf != true) {
+        if (writeWordSelf != true) 
+        {
             threeWords = glossary.randomiseThreeAlternatives();
             mainView.setWordAlternatives(threeWords);
         }
     }
+        
+    private void resetFieldsAndValues()
+    {       
+        glossary.resetNumberOfFailedGlossaries();
+        glossary.resetNumberOfExecutedGlossaries();     
+        glossary.resetCurrentNumberOfTrials(); //L8 fixed
+        mainView.enableAnswerButton();
+        mainView.setEmptyEndText();
+        mainView.setEmptyFeedbackText();     
+    }    
 
     private String generateNewGlossary() 
     {

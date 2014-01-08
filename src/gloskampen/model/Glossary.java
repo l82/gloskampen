@@ -29,7 +29,9 @@ public class Glossary {
     private static int totNumWordsInTest = 10;
     private Boolean lastIsCorrect;
     
-    public Glossary() {
+    
+    public Glossary() 
+    {
         totNumberOfGlossaries = totNumWordsInTest;
         numberOfFailedGlossaries = 0;
         numberOfExecutedGlossaries = 0;
@@ -152,22 +154,25 @@ public class Glossary {
         return correct;
     }
     
-    private void setResultData(Boolean answerIsCorrect) {
-        
-        if (answerIsCorrect) {
-            currentNumberOfTrials = 0;
+    private void setResultData(Boolean answerIsCorrect) 
+    {        
+        if (answerIsCorrect) 
+        {
+            resetCurrentNumberOfTrials();
         }
-        else {
-            if (currentNumberOfTrials == 1) { //TODO L8
+        else 
+        {
+            if (currentNumberOfTrials == 0) 
+            {
                 int lastElement = listOfAlreadyUsedWords.size();
                 String failedWord = listOfAlreadyUsedWords.get(lastElement-1);
-                System.out.println("L8 to add word into failed list " + failedWord);
                 listOfFailedWords.add(failedWord);
                 numberOfFailedGlossaries++;
             }
             currentNumberOfTrials++;
         }
-        if (!getNewTrial()) {
+        if (!getNewTrial()) 
+        {
             numberOfExecutedGlossaries++;
         }
     }
@@ -237,9 +242,6 @@ public class Glossary {
         {
             end = true;
         }
-        System.out.println("L8 checkEndOfTest numberOfExecutedGlossaries=" + numberOfExecutedGlossaries + 
-                "totNumberOfGlossaries=" + totNumberOfGlossaries + "numberOfFailedGlossaries=" +
-                numberOfFailedGlossaries + "end=" + end);
         return end;
     }
     
@@ -265,12 +267,36 @@ public class Glossary {
     }
     
     /**
+     * Resets the number of failed glossaries
+     */
+    public void resetNumberOfFailedGlossaries() 
+    {
+        numberOfFailedGlossaries = 0;
+    }
+   
+    /**
      * Gets number of executed test cases to be shown for user
      * @return Number of failed test cases
      */
     public int getNumberOfExecutedGlossaries() 
     {
         return numberOfExecutedGlossaries;
+    }
+    
+    /**
+     * Resets the number of executed glossaries
+     */
+    public void resetNumberOfExecutedGlossaries() 
+    {
+        numberOfExecutedGlossaries = 0;
+    }
+    
+    /**
+     * Resets the number of trials
+     */
+    public void resetCurrentNumberOfTrials() 
+    {
+        currentNumberOfTrials = 0;
     }
     
       /**
@@ -313,7 +339,7 @@ public class Glossary {
         Boolean newTrial = false;  //Set to false and only changed if needed
         if ((currentNumberOfTrials < numberOfTrialsEachTest) && !lastIsCorrect) {
             newTrial = true;
-        }       
+        }      
         System.out.println("L8 getNewTrial cur " + currentNumberOfTrials + 
                 " numEachTest "  +  numberOfTrialsEachTest + " last is OK " + 
                 lastIsCorrect);
