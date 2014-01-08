@@ -25,9 +25,9 @@ import javax.swing.JRootPane;
 import javax.swing.JWindow;
 import javax.swing.SwingConstants;
 
-
+ 
 /**
- * Latest update: 2014-01-07 15:10
+ * Latest update: 2014-01-07 22:44
  * @author Fredrik Johansson 
  */
 public class MainView extends javax.swing.JFrame 
@@ -121,7 +121,6 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelLangDiffSelect = new javax.swing.JLabel();
         labelCBFrom1 = new javax.swing.JLabel();
         comBoxFrom1 = new javax.swing.JComboBox();
         labelCBTo1 = new javax.swing.JLabel();
@@ -146,7 +145,6 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelPreGame = new javax.swing.JLabel();
         btnStartGame = new javax.swing.JButton();
         labelPreGame1 = new javax.swing.JLabel();
         labelPreGame2 = new javax.swing.JLabel();
@@ -170,7 +168,6 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelGame = new javax.swing.JLabel();
         btnNext = new javax.swing.JButton();
         txtFldAnswer = new javax.swing.JTextField();
         labelWordToTranslate = new javax.swing.JLabel();
@@ -196,8 +193,8 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelSettings = new javax.swing.JLabel();
         btnSettingsBack = new javax.swing.JButton();
+        labelSettings = new javax.swing.JLabel();
         panelHelp = new javax.swing.JPanel()
         {
             // test
@@ -209,8 +206,8 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelHelp = new javax.swing.JLabel();
         btnHelpBack = new javax.swing.JButton();
+        labelHelp = new javax.swing.JLabel();
         panelHighscore = new javax.swing.JPanel()
         {
             // test
@@ -222,10 +219,10 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelHighscore = new javax.swing.JLabel();
         btnHighscoreBack = new javax.swing.JButton();
         scrPaneHighscore = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
+        txtPaneHighscore = new javax.swing.JTextPane();
+        labelHighscore = new javax.swing.JLabel();
         panelAddWord = new javax.swing.JPanel()
         {
             // test
@@ -237,7 +234,6 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelAddWord = new javax.swing.JLabel();
         btnAddWordBack = new javax.swing.JButton();
         labelCBFrom2 = new javax.swing.JLabel();
         txtFldAddWordFrom = new javax.swing.JTextField();
@@ -251,7 +247,8 @@ public class MainView extends javax.swing.JFrame
         btnAddWordAdd = new javax.swing.JButton();
         btnAddWordClear = new javax.swing.JButton();
         labelSubmitNewLang = new javax.swing.JLabel();
-        btnNewLangOK = new javax.swing.JButton();
+        btnNewLangSave = new javax.swing.JButton();
+        labelHighscore1 = new javax.swing.JLabel();
         panelListWords = new javax.swing.JPanel()
         {
             // test
@@ -263,7 +260,6 @@ public class MainView extends javax.swing.JFrame
                 g.drawImage(bgImg, 0, 0, getWidth(), getHeight(), this);
             }
         };
-        labelListWords = new javax.swing.JLabel();
         btnListWordsBack = new javax.swing.JButton();
         scrPaneListWords = new javax.swing.JScrollPane();
         jEditorPane1 = new javax.swing.JEditorPane();
@@ -273,6 +269,7 @@ public class MainView extends javax.swing.JFrame
         comBoxTo3 = new javax.swing.JComboBox();
         btnListWordsSave = new javax.swing.JButton();
         btnListWordsShow = new javax.swing.JButton();
+        labelHighscore2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gloskampen");
@@ -342,7 +339,7 @@ public class MainView extends javax.swing.JFrame
             .addGroup(panelMainMenuLayout.createSequentialGroup()
                 .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelMainMenuLayout.createSequentialGroup()
-                        .addGap(393, 393, 393)
+                        .addContainerGap(394, Short.MAX_VALUE)
                         .addGroup(panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnListWords, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnAddWord, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -356,7 +353,7 @@ public class MainView extends javax.swing.JFrame
                     .addGroup(panelMainMenuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(labelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(422, Short.MAX_VALUE))
+                .addContainerGap(394, Short.MAX_VALUE))
         );
         panelMainMenuLayout.setVerticalGroup(
             panelMainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,14 +377,13 @@ public class MainView extends javax.swing.JFrame
 
         getContentPane().add(panelMainMenu, "card2");
 
-        labelLangDiffSelect.setForeground(new java.awt.Color(255, 255, 255));
-        labelLangDiffSelect.setText("(panelLangDiffSelect)");
-
-        labelCBFrom1.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBFrom1.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBFrom1.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBFrom1.setForeground(new java.awt.Color(255, 255, 255));
         labelCBFrom1.setText("Välj från-språk:");
+        labelCBFrom1.setOpaque(true);
 
-        comBoxFrom1.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
+        comBoxFrom1.setFont(new java.awt.Font("Californian FB", 0, 16)); // NOI18N
         comBoxFrom1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svenska", "Engelska" }));
         comBoxFrom1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -395,25 +391,36 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
-        labelCBTo1.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBTo1.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBTo1.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBTo1.setForeground(new java.awt.Color(255, 255, 255));
         labelCBTo1.setText("Välj till-språk:");
+        labelCBTo1.setOpaque(true);
 
-        comBoxTo1.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
+        comBoxTo1.setFont(new java.awt.Font("Californian FB", 0, 16)); // NOI18N
         comBoxTo1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Engelska", "Svenska" }));
+        comBoxTo1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comBoxTo1ActionPerformed(evt);
+            }
+        });
 
-        labelCBDiff.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBDiff.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBDiff.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBDiff.setForeground(new java.awt.Color(255, 255, 255));
         labelCBDiff.setText("Välj svårighetsgrad:");
+        labelCBDiff.setOpaque(true);
 
-        comBoxDiff.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
+        comBoxDiff.setFont(new java.awt.Font("Californian FB", 0, 16)); // NOI18N
         comBoxDiff.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Vilken som", "Svår", "Mellan", "Lätt" }));
 
-        labelRBSelectType.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelRBSelectType.setBackground(new java.awt.Color(106, 78, 57));
+        labelRBSelectType.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelRBSelectType.setForeground(new java.awt.Color(255, 255, 255));
         labelRBSelectType.setText("Välj ord eller skriv själv:");
+        labelRBSelectType.setOpaque(true);
 
-        radBtnSelectChoices.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
+        radBtnSelectChoices.setFont(new java.awt.Font("Californian FB", 0, 16)); // NOI18N
         radBtnSelectChoices.setText("Välj ord");
         radBtnSelectChoices.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -421,10 +428,10 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
-        radBtnTypeWord.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
+        radBtnTypeWord.setFont(new java.awt.Font("Californian FB", 0, 16)); // NOI18N
         radBtnTypeWord.setText("Skriv själv");
 
-        btnConfirmLangDiff.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnConfirmLangDiff.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnConfirmLangDiff.setText("Bekräfta val");
         btnConfirmLangDiff.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -432,7 +439,7 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
-        btnLangDiffSelectBack.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnLangDiffSelectBack.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnLangDiffSelectBack.setText("Tillbaka");
         btnLangDiffSelectBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -440,11 +447,13 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
-        labelChBThreeChoices.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelChBThreeChoices.setBackground(new java.awt.Color(106, 78, 57));
+        labelChBThreeChoices.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelChBThreeChoices.setForeground(new java.awt.Color(255, 255, 255));
         labelChBThreeChoices.setText("Tre försök på varje ord?");
+        labelChBThreeChoices.setOpaque(true);
 
-        chBoxThreeChoicesYes.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        chBoxThreeChoicesYes.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         chBoxThreeChoicesYes.setText("Ja");
         chBoxThreeChoicesYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -461,35 +470,31 @@ public class MainView extends javax.swing.JFrame
                 .addComponent(btnConfirmLangDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(137, 137, 137))
             .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
-                .addGroup(panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(380, Short.MAX_VALUE)
+                .addGroup(panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(labelCBFrom1)
+                    .addComponent(comBoxFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCBTo1)
+                    .addComponent(comBoxTo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelCBDiff)
+                    .addComponent(comBoxDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelRBSelectType)
                     .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
-                        .addGap(384, 384, 384)
-                        .addGroup(panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(labelLangDiffSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelCBFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comBoxFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelCBTo1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comBoxTo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelCBDiff, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comBoxDiff, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelRBSelectType, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
-                                .addComponent(radBtnSelectChoices)
-                                .addGap(10, 10, 10)
-                                .addComponent(radBtnTypeWord))
-                            .addComponent(labelChBThreeChoices)
-                            .addComponent(chBoxThreeChoicesYes)))
-                    .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addComponent(btnLangDiffSelectBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(387, Short.MAX_VALUE))
+                        .addComponent(radBtnSelectChoices)
+                        .addGap(10, 10, 10)
+                        .addComponent(radBtnTypeWord))
+                    .addComponent(labelChBThreeChoices)
+                    .addComponent(chBoxThreeChoicesYes))
+                .addContainerGap(381, Short.MAX_VALUE))
+            .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(btnLangDiffSelectBack, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelLangDiffSelectLayout.setVerticalGroup(
             panelLangDiffSelectLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelLangDiffSelectLayout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(labelLangDiffSelect, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
+                .addGap(115, 115, 115)
                 .addComponent(labelCBFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(comBoxFrom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -511,7 +516,7 @@ public class MainView extends javax.swing.JFrame
                 .addComponent(labelChBThreeChoices)
                 .addGap(18, 18, 18)
                 .addComponent(chBoxThreeChoicesYes)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                 .addComponent(btnConfirmLangDiff)
                 .addGap(23, 23, 23)
                 .addComponent(btnLangDiffSelectBack)
@@ -520,10 +525,7 @@ public class MainView extends javax.swing.JFrame
 
         getContentPane().add(panelLangDiffSelect, "card3");
 
-        labelPreGame.setForeground(new java.awt.Color(255, 255, 255));
-        labelPreGame.setText("(panelPreGame)");
-
-        btnStartGame.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnStartGame.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnStartGame.setText("Starta!");
         btnStartGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -531,47 +533,67 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
-        labelPreGame1.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGame1.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGame1.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGame1.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGame1.setText("Om du vill starta spelet med nedanstående inställningar, tryck på Starta!");
+        labelPreGame1.setOpaque(true);
 
-        labelPreGame2.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGame2.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGame2.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGame2.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGame2.setText("Om du vill ändra någon inställning, tryck Tillbaka.");
+        labelPreGame2.setOpaque(true);
 
-        labelPreGame3.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGame3.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGame3.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGame3.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGame3.setText("Från-språk:");
+        labelPreGame3.setOpaque(true);
 
-        labelPreGame4.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGame4.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGame4.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGame4.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGame4.setText("Till-språk:");
+        labelPreGame4.setOpaque(true);
 
-        labelPreGameFrom.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGameFrom.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGameFrom.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGameFrom.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGameFrom.setText("<value>");
+        labelPreGameFrom.setOpaque(true);
 
-        labelPreGameTo.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGameTo.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGameTo.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGameTo.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGameTo.setText("<value>");
+        labelPreGameTo.setOpaque(true);
 
-        labelPreGame5.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGame5.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGame5.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGame5.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGame5.setText("Svårighetsgrad:");
+        labelPreGame5.setOpaque(true);
 
-        labelPreGameDiff.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGameDiff.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGameDiff.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGameDiff.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGameDiff.setText("<value>");
+        labelPreGameDiff.setOpaque(true);
 
-        labelPreGame6.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGame6.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGame6.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGame6.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGame6.setText("Välj ord / skriv själv:");
+        labelPreGame6.setOpaque(true);
 
-        labelPreGameSelectType.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelPreGameSelectType.setBackground(new java.awt.Color(106, 78, 57));
+        labelPreGameSelectType.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelPreGameSelectType.setForeground(new java.awt.Color(255, 255, 255));
         labelPreGameSelectType.setText("<value>");
+        labelPreGameSelectType.setOpaque(true);
 
-        btnPreGameBack.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnPreGameBack.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnPreGameBack.setText("Tillbaka");
         btnPreGameBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -584,7 +606,7 @@ public class MainView extends javax.swing.JFrame
         panelPreGameLayout.setHorizontalGroup(
             panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPreGameLayout.createSequentialGroup()
-                .addGap(288, 288, 288)
+                .addContainerGap(235, Short.MAX_VALUE)
                 .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPreGame2)
                     .addComponent(labelPreGame1)
@@ -601,27 +623,20 @@ public class MainView extends javax.swing.JFrame
                             .addComponent(labelPreGameFrom)
                             .addComponent(labelPreGameDiff)
                             .addComponent(labelPreGameSelectType))))
-                .addGap(0, 230, Short.MAX_VALUE))
+                .addGap(0, 233, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPreGameLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnStartGame, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(150, 150, 150))
             .addGroup(panelPreGameLayout.createSequentialGroup()
-                .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPreGameLayout.createSequentialGroup()
-                        .addGap(398, 398, 398)
-                        .addComponent(labelPreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPreGameLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(btnPreGameBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(68, 68, 68)
+                .addComponent(btnPreGameBack, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPreGameLayout.setVerticalGroup(
             panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPreGameLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(labelPreGame, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(126, 126, 126)
                 .addComponent(labelPreGame1)
                 .addGap(18, 18, 18)
                 .addComponent(labelPreGame2)
@@ -641,7 +656,7 @@ public class MainView extends javax.swing.JFrame
                 .addGroup(panelPreGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelPreGame6)
                     .addComponent(labelPreGameSelectType))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 150, Short.MAX_VALUE)
                 .addComponent(btnStartGame)
                 .addGap(117, 117, 117)
                 .addComponent(btnPreGameBack)
@@ -650,30 +665,31 @@ public class MainView extends javax.swing.JFrame
 
         getContentPane().add(panelPreGame, "card4");
 
-        labelGame.setForeground(new java.awt.Color(255, 255, 255));
-        labelGame.setText("(panelGame)");
-
-        btnNext.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnNext.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnNext.setText("Svara");
 
+        txtFldAnswer.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txtFldAnswer.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtFldAnswerFocusGained(evt);
             }
         });
 
-        labelWordToTranslate.setFont(new java.awt.Font("Californian FB", 1, 22)); // NOI18N
+        labelWordToTranslate.setBackground(new java.awt.Color(106, 78, 57));
+        labelWordToTranslate.setFont(new java.awt.Font("Californian FB", 1, 24)); // NOI18N
         labelWordToTranslate.setForeground(new java.awt.Color(255, 255, 255));
         labelWordToTranslate.setText("<word to translate>");
 
-        labelWordNo.setFont(new java.awt.Font("Californian FB", 0, 22)); // NOI18N
+        labelWordNo.setBackground(new java.awt.Color(106, 78, 57));
+        labelWordNo.setFont(new java.awt.Font("Californian FB", 0, 24)); // NOI18N
         labelWordNo.setForeground(new java.awt.Color(255, 255, 255));
         labelWordNo.setText("<word no>");
 
-        labelEndGame.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelEndGame.setBackground(new java.awt.Color(106, 78, 57));
+        labelEndGame.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelEndGame.setForeground(new java.awt.Color(255, 255, 255));
 
-        btnEndGame.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnEndGame.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnEndGame.setText("Avsluta spelomgång");
         btnEndGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -715,12 +731,14 @@ public class MainView extends javax.swing.JFrame
             .addComponent(panelGameTest2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        comBoxThreeWords.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
-        comBoxThreeWords.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ord1", "ord2", "ord3" }));
+        comBoxThreeWords.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
+        comBoxThreeWords.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "longlonglongword", "mediumword", "shortwd" }));
 
-        labelCBThreeWords.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBThreeWords.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBThreeWords.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBThreeWords.setForeground(new java.awt.Color(255, 255, 255));
         labelCBThreeWords.setText("Välj ord i listan");
+        labelCBThreeWords.setOpaque(true);
 
         scrPaneFeedback2.setBackground(new java.awt.Color(255, 255, 255));
         scrPaneFeedback2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -732,7 +750,7 @@ public class MainView extends javax.swing.JFrame
 
         labelFeedback.setEditable(false);
         labelFeedback.setColumns(20);
-        labelFeedback.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelFeedback.setFont(new java.awt.Font("Californian FB", 1, 15)); // NOI18N
         labelFeedback.setLineWrap(true);
         labelFeedback.setRows(5);
         labelFeedback.setMinimumSize(new java.awt.Dimension(275, 89));
@@ -748,72 +766,60 @@ public class MainView extends javax.swing.JFrame
             .addGroup(panelGameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelGameTest, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38)
                 .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelGameLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
-                        .addComponent(labelEndGame, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrPaneFeedback2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelGameLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(scrPaneFeedback2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(panelGameLayout.createSequentialGroup()
-                                .addComponent(txtFldAnswer)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelGameLayout.createSequentialGroup()
-                                .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelGameLayout.createSequentialGroup()
-                                        .addComponent(labelWordNo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(labelWordToTranslate, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelGameLayout.createSequentialGroup()
-                                        .addComponent(comBoxThreeWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(labelCBThreeWords))
-                                    .addComponent(labelGame, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addComponent(txtFldAnswer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelEndGame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelGameLayout.createSequentialGroup()
+                        .addComponent(comBoxThreeWords, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(labelCBThreeWords)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelGameLayout.createSequentialGroup()
+                        .addComponent(labelWordNo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(labelWordToTranslate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panelGameLayout.createSequentialGroup()
                 .addGap(648, 648, 648)
-                .addComponent(btnEndGame, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(138, 138, 138))
+                .addComponent(btnEndGame, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelGameLayout.setVerticalGroup(
             panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelGameLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(labelGame, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
+                .addGap(110, 110, 110)
                 .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelWordToTranslate, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelWordToTranslate)
                     .addComponent(labelWordNo))
-                .addGap(30, 30, 30)
+                .addGap(33, 33, 33)
                 .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comBoxThreeWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelCBThreeWords))
                 .addGap(34, 34, 34)
                 .addGroup(panelGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNext)
-                    .addComponent(txtFldAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFldAnswer, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(scrPaneFeedback2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98)
-                .addComponent(labelEndGame, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 275, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(labelEndGame, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
                 .addComponent(btnEndGame)
                 .addGap(28, 28, 28))
             .addGroup(panelGameLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelGameTest, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+                .addComponent(panelGameTest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         getContentPane().add(panelGame, "card5");
 
-        labelSettings.setForeground(new java.awt.Color(255, 255, 255));
-        labelSettings.setText("(panelSettings)");
-
-        btnSettingsBack.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnSettingsBack.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnSettingsBack.setText("Tillbaka");
         btnSettingsBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -821,35 +827,38 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
+        labelSettings.setBackground(new java.awt.Color(106, 78, 57));
+        labelSettings.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
+        labelSettings.setForeground(new java.awt.Color(255, 255, 255));
+        labelSettings.setText("INSTÄLLNINGAR");
+        labelSettings.setOpaque(true);
+
         javax.swing.GroupLayout panelSettingsLayout = new javax.swing.GroupLayout(panelSettings);
         panelSettings.setLayout(panelSettingsLayout);
         panelSettingsLayout.setHorizontalGroup(
             panelSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSettingsLayout.createSequentialGroup()
+                .addContainerGap(395, Short.MAX_VALUE)
+                .addComponent(labelSettings)
+                .addContainerGap(395, Short.MAX_VALUE))
             .addGroup(panelSettingsLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addComponent(btnSettingsBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSettingsBack, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelSettingsLayout.createSequentialGroup()
-                .addContainerGap(409, Short.MAX_VALUE)
-                .addComponent(labelSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(425, 425, 425))
         );
         panelSettingsLayout.setVerticalGroup(
             panelSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSettingsLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(labelSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 588, Short.MAX_VALUE)
+                .addGap(73, 73, 73)
+                .addComponent(labelSettings)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 569, Short.MAX_VALUE)
                 .addComponent(btnSettingsBack)
                 .addGap(58, 58, 58))
         );
 
         getContentPane().add(panelSettings, "card6");
 
-        labelHelp.setForeground(new java.awt.Color(255, 255, 255));
-        labelHelp.setText("(panelHelp)");
-
-        btnHelpBack.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnHelpBack.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnHelpBack.setText("Tillbaka");
         btnHelpBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -857,35 +866,38 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
+        labelHelp.setBackground(new java.awt.Color(106, 78, 57));
+        labelHelp.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
+        labelHelp.setForeground(new java.awt.Color(255, 255, 255));
+        labelHelp.setText("HJÄLP");
+        labelHelp.setOpaque(true);
+
         javax.swing.GroupLayout panelHelpLayout = new javax.swing.GroupLayout(panelHelp);
         panelHelp.setLayout(panelHelpLayout);
         panelHelpLayout.setHorizontalGroup(
             panelHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHelpLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(labelHelp)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelHelpLayout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(btnHelpBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHelpLayout.createSequentialGroup()
-                .addContainerGap(421, Short.MAX_VALUE)
-                .addComponent(labelHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(429, 429, 429))
+                .addComponent(btnHelpBack, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(764, Short.MAX_VALUE))
         );
         panelHelpLayout.setVerticalGroup(
             panelHelpLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHelpLayout.createSequentialGroup()
                 .addGap(73, 73, 73)
-                .addComponent(labelHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 575, Short.MAX_VALUE)
+                .addComponent(labelHelp)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 574, Short.MAX_VALUE)
                 .addComponent(btnHelpBack)
                 .addGap(53, 53, 53))
         );
 
         getContentPane().add(panelHelp, "card7");
 
-        labelHighscore.setForeground(new java.awt.Color(255, 255, 255));
-        labelHighscore.setText("(panelHighscore)");
-
-        btnHighscoreBack.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnHighscoreBack.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnHighscoreBack.setText("Tillbaka till huvudmenyn");
         btnHighscoreBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -893,87 +905,117 @@ public class MainView extends javax.swing.JFrame
             }
         });
 
-        jTextPane1.setFont(new java.awt.Font("Californian FB", 0, 14)); // NOI18N
-        jTextPane1.setText("Namn\t\tTyp\t\tDatum\t\tPoäng\n\nPelle\t\tn/a\t\t2014-01-01\t\t10");
-        scrPaneHighscore.setViewportView(jTextPane1);
+        txtPaneHighscore.setEditable(false);
+        txtPaneHighscore.setFont(new java.awt.Font("Californian FB", 0, 15)); // NOI18N
+        txtPaneHighscore.setText("Namn\t\tTyp\t\tDatum\t\tPoäng\n\nPelle\t\tn/a\t\t2014-01-01\t\t10");
+        scrPaneHighscore.setViewportView(txtPaneHighscore);
+
+        labelHighscore.setBackground(new java.awt.Color(106, 78, 57));
+        labelHighscore.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
+        labelHighscore.setForeground(new java.awt.Color(255, 255, 255));
+        labelHighscore.setText("TOPPLISTA");
+        labelHighscore.setOpaque(true);
 
         javax.swing.GroupLayout panelHighscoreLayout = new javax.swing.GroupLayout(panelHighscore);
         panelHighscore.setLayout(panelHighscoreLayout);
         panelHighscoreLayout.setHorizontalGroup(
             panelHighscoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHighscoreLayout.createSequentialGroup()
-                .addGroup(panelHighscoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelHighscoreLayout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(btnHighscoreBack, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelHighscoreLayout.createSequentialGroup()
-                        .addGap(228, 228, 228)
-                        .addComponent(scrPaneHighscore, javax.swing.GroupLayout.PREFERRED_SIZE, 504, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(201, Short.MAX_VALUE))
+                .addGap(422, 422, 422)
+                .addComponent(labelHighscore)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelHighscoreLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelHighscore, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(437, 437, 437))
+                .addGap(0, 196, Short.MAX_VALUE)
+                .addComponent(scrPaneHighscore, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(198, Short.MAX_VALUE))
+            .addGroup(panelHighscoreLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(btnHighscoreBack, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelHighscoreLayout.setVerticalGroup(
             panelHighscoreLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelHighscoreLayout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(labelHighscore, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
+                .addGap(73, 73, 73)
+                .addComponent(labelHighscore)
+                .addGap(42, 42, 42)
                 .addComponent(scrPaneHighscore, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 335, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 321, Short.MAX_VALUE)
                 .addComponent(btnHighscoreBack)
                 .addGap(48, 48, 48))
         );
 
         getContentPane().add(panelHighscore, "card8");
 
-        labelAddWord.setForeground(new java.awt.Color(255, 255, 255));
-        labelAddWord.setText("(panelAddWord)");
-
-        btnAddWordBack.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnAddWordBack.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnAddWordBack.setText("Tillbaka");
+        btnAddWordBack.setPreferredSize(new java.awt.Dimension(96, 29));
         btnAddWordBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddWordBackActionPerformed(evt);
             }
         });
 
-        labelCBFrom2.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBFrom2.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBFrom2.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBFrom2.setForeground(new java.awt.Color(255, 255, 255));
         labelCBFrom2.setText("Från:");
+        labelCBFrom2.setOpaque(true);
 
-        comBoxFrom2.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        txtFldAddWordFrom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        comBoxFrom2.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         comBoxFrom2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svenska", "Engelska" }));
 
-        labelAddWordFromError.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelAddWordFromError.setBackground(new java.awt.Color(106, 78, 57));
+        labelAddWordFromError.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelAddWordFromError.setForeground(new java.awt.Color(255, 255, 255));
         labelAddWordFromError.setText("<input error field>");
+        labelAddWordFromError.setOpaque(true);
 
-        labelCBTo2.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBTo2.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBTo2.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBTo2.setForeground(new java.awt.Color(255, 255, 255));
         labelCBTo2.setText("Till:");
+        labelCBTo2.setOpaque(true);
 
-        comBoxTo2.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        comBoxTo2.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         comBoxTo2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Engelska", "Svenska" }));
 
-        labelAddWordToError.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        txtFldAddWordTo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        labelAddWordToError.setBackground(new java.awt.Color(106, 78, 57));
+        labelAddWordToError.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelAddWordToError.setForeground(new java.awt.Color(255, 255, 255));
         labelAddWordToError.setText("<input error field>");
+        labelAddWordToError.setOpaque(true);
 
-        btnAddWordAdd.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        txtFldAddWordNewLang.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        btnAddWordAdd.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnAddWordAdd.setText("Lägg till glosa");
 
-        btnAddWordClear.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
-        btnAddWordClear.setText("Rensa");
+        btnAddWordClear.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
+        btnAddWordClear.setText("Rensa fält");
+        btnAddWordClear.setMaximumSize(new java.awt.Dimension(60, 29));
+        btnAddWordClear.setMinimumSize(new java.awt.Dimension(60, 29));
+        btnAddWordClear.setPreferredSize(new java.awt.Dimension(60, 29));
 
-        labelSubmitNewLang.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelSubmitNewLang.setBackground(new java.awt.Color(106, 78, 57));
+        labelSubmitNewLang.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelSubmitNewLang.setForeground(new java.awt.Color(255, 255, 255));
         labelSubmitNewLang.setText("Nytt språk:");
+        labelSubmitNewLang.setOpaque(true);
 
-        btnNewLangOK.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
-        btnNewLangOK.setText("OK");
+        btnNewLangSave.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
+        btnNewLangSave.setLabel("Spara");
+        btnNewLangSave.setPreferredSize(new java.awt.Dimension(59, 29));
+
+        labelHighscore1.setBackground(new java.awt.Color(106, 78, 57));
+        labelHighscore1.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
+        labelHighscore1.setForeground(new java.awt.Color(255, 255, 255));
+        labelHighscore1.setText("LÄGG TILL GLOSA");
+        labelHighscore1.setOpaque(true);
 
         javax.swing.GroupLayout panelAddWordLayout = new javax.swing.GroupLayout(panelAddWord);
         panelAddWord.setLayout(panelAddWordLayout);
@@ -982,84 +1024,83 @@ public class MainView extends javax.swing.JFrame
             .addGroup(panelAddWordLayout.createSequentialGroup()
                 .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAddWordLayout.createSequentialGroup()
-                        .addGap(68, 68, 68)
-                        .addComponent(btnAddWordBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(104, 104, 104)
+                        .addComponent(txtFldAddWordFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comBoxFrom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCBTo2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(comBoxTo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelCBFrom2)))
                     .addGroup(panelAddWordLayout.createSequentialGroup()
                         .addGap(104, 104, 104)
-                        .addComponent(txtFldAddWordFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(labelAddWordFromError, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAddWordClear, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFldAddWordTo, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 48, Short.MAX_VALUE)
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelAddWordFromError, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelSubmitNewLang)
+                    .addComponent(labelAddWordToError, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddWordAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panelAddWordLayout.createSequentialGroup()
-                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelAddWordLayout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(txtFldAddWordTo, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(panelAddWordLayout.createSequentialGroup()
-                                .addGap(91, 91, 91)
-                                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(panelAddWordLayout.createSequentialGroup()
-                                        .addComponent(btnAddWordClear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(37, 37, 37)
-                                        .addComponent(btnAddWordAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(comBoxFrom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCBTo2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(labelCBFrom2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comBoxTo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(labelSubmitNewLang)
-                            .addGroup(panelAddWordLayout.createSequentialGroup()
-                                .addComponent(txtFldAddWordNewLang, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNewLangOK, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(labelAddWordToError))))
-                .addContainerGap(369, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddWordLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(labelAddWord, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(413, 413, 413))
+                        .addComponent(txtFldAddWordNewLang, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNewLangSave, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(348, 348, 348))
+            .addGroup(panelAddWordLayout.createSequentialGroup()
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(btnAddWordBack, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelHighscore1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelAddWordLayout.setVerticalGroup(
             panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAddWordLayout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(labelAddWord, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(73, 73, 73)
+                .addComponent(labelHighscore1)
+                .addGap(48, 48, 48)
                 .addComponent(labelCBFrom2)
                 .addGap(7, 7, 7)
                 .addComponent(comBoxFrom2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFldAddWordFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelAddWordFromError))
-                .addGap(67, 67, 67)
-                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(labelCBTo2)
-                    .addComponent(labelSubmitNewLang))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comBoxTo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFldAddWordNewLang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNewLangOK, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFldAddWordTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelAddWordToError))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddWordAdd)
-                    .addComponent(btnAddWordClear))
-                .addGap(145, 145, 145)
-                .addComponent(btnAddWordBack)
+                .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFldAddWordFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelAddWordFromError))
+                        .addGap(67, 67, 67)
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelCBTo2)
+                            .addComponent(labelSubmitNewLang))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(comBoxTo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtFldAddWordNewLang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNewLangSave, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtFldAddWordTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelAddWordToError))
+                        .addGap(0, 147, Short.MAX_VALUE))
+                    .addGroup(panelAddWordLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(panelAddWordLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAddWordAdd)
+                            .addComponent(btnAddWordClear, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(130, 130, 130)
+                .addComponent(btnAddWordBack, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53))
         );
 
         getContentPane().add(panelAddWord, "card9");
 
-        labelListWords.setForeground(new java.awt.Color(255, 255, 255));
-        labelListWords.setText("(panelListWords)");
-
-        btnListWordsBack.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnListWordsBack.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnListWordsBack.setText("Tillbaka");
         btnListWordsBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1069,58 +1110,73 @@ public class MainView extends javax.swing.JFrame
 
         scrPaneListWords.setViewportView(jEditorPane1);
 
-        labelCBFrom3.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBFrom3.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBFrom3.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBFrom3.setForeground(new java.awt.Color(255, 255, 255));
         labelCBFrom3.setText("Från:");
+        labelCBFrom3.setOpaque(true);
 
-        comBoxFrom3.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        comBoxFrom3.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         comBoxFrom3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Svenska", "Engelska" }));
 
-        labelCBTo3.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        labelCBTo3.setBackground(new java.awt.Color(106, 78, 57));
+        labelCBTo3.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         labelCBTo3.setForeground(new java.awt.Color(255, 255, 255));
         labelCBTo3.setText("Till:");
+        labelCBTo3.setOpaque(true);
 
-        comBoxTo3.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        comBoxTo3.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         comBoxTo3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Engelska", "Svenska" }));
 
-        btnListWordsSave.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnListWordsSave.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnListWordsSave.setText("Spara ändringar");
 
-        btnListWordsShow.setFont(new java.awt.Font("Californian FB", 1, 14)); // NOI18N
+        btnListWordsShow.setFont(new java.awt.Font("Californian FB", 1, 16)); // NOI18N
         btnListWordsShow.setText("Visa lista");
+
+        labelHighscore2.setBackground(new java.awt.Color(106, 78, 57));
+        labelHighscore2.setFont(new java.awt.Font("Californian FB", 1, 18)); // NOI18N
+        labelHighscore2.setForeground(new java.awt.Color(255, 255, 255));
+        labelHighscore2.setText("LISTA GLOSOR");
+        labelHighscore2.setOpaque(true);
 
         javax.swing.GroupLayout panelListWordsLayout = new javax.swing.GroupLayout(panelListWords);
         panelListWords.setLayout(panelListWordsLayout);
         panelListWordsLayout.setHorizontalGroup(
             panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelListWordsLayout.createSequentialGroup()
+                .addGap(0, 405, Short.MAX_VALUE)
+                .addComponent(labelHighscore2)
+                .addGap(402, 402, 402))
             .addGroup(panelListWordsLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelListWordsLayout.createSequentialGroup()
-                        .addComponent(btnListWordsBack, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(392, 392, 392))
-                    .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(scrPaneListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(panelListWordsLayout.createSequentialGroup()
-                            .addComponent(labelCBFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(comBoxFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(30, 30, 30)
-                            .addComponent(labelCBTo3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(comBoxTo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(51, 51, 51)
-                            .addComponent(btnListWordsShow)))
-                    .addComponent(btnListWordsSave, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(397, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)
+                        .addComponent(btnListWordsBack, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelListWordsLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnListWordsSave, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(scrPaneListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(panelListWordsLayout.createSequentialGroup()
+                                    .addComponent(labelCBFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(comBoxFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(30, 30, 30)
+                                    .addComponent(labelCBTo3)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(comBoxTo3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(49, 49, 49)
+                                    .addComponent(btnListWordsShow, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelListWordsLayout.setVerticalGroup(
             panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelListWordsLayout.createSequentialGroup()
-                .addGap(62, 62, 62)
-                .addComponent(labelListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(73, 73, 73)
+                .addComponent(labelHighscore2)
+                .addGap(88, 88, 88)
                 .addGroup(panelListWordsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(labelCBFrom3)
                     .addComponent(comBoxFrom3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1129,9 +1185,9 @@ public class MainView extends javax.swing.JFrame
                     .addComponent(btnListWordsShow))
                 .addGap(18, 18, 18)
                 .addComponent(scrPaneListWords, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnListWordsSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(btnListWordsBack)
                 .addGap(64, 64, 64))
         );
@@ -1221,6 +1277,7 @@ public class MainView extends javax.swing.JFrame
     }
     
     /**
+     * L8
      * Add a listener for the confirm choice button button
      * @param listener listener to add
      */    
@@ -1280,11 +1337,13 @@ public class MainView extends javax.swing.JFrame
     }
      
     public void setEndText(int total, int correct) 
-    {        
+    {     
+        labelEndGame.setOpaque(true);
         labelEndGame.setText("Du hade " + correct + " rätt av " + total + ".");
     }
     
     /**
+     * L8
      * Checks if user want to write the words him/herself or if the user want to
      * select from a list of words
      * @return true if user want to write own word, else false
@@ -1303,7 +1362,8 @@ public class MainView extends javax.swing.JFrame
         return writeOwnWord;
     }
     
-    /** 
+    /**
+     * L8 
      * Writes three alternatives in text field
      * @param wordAlternatives An arrayList with the alternatives
      */
@@ -1426,10 +1486,11 @@ public class MainView extends javax.swing.JFrame
     }//GEN-LAST:event_btnLangDiffSelectBackActionPerformed
 
     private void btnEndGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEndGameActionPerformed
-
+        
         //L8 removed this String input = JOptionPane.showInputDialog("Skriv in ditt namn:");
         
         // TODO add end game handling code here (for saving score, user name ?)
+        
         panelGame.setVisible(false);
         panelHighscore.setVisible(true); 
     }//GEN-LAST:event_btnEndGameActionPerformed
@@ -1454,6 +1515,10 @@ public class MainView extends javax.swing.JFrame
         scrPaneFeedback2.setVisible(false);
     }//GEN-LAST:event_txtFldAnswerFocusGained
 
+    private void comBoxTo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comBoxTo1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comBoxTo1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddWord;
     private javax.swing.JButton btnAddWordAdd;
@@ -1470,7 +1535,7 @@ public class MainView extends javax.swing.JFrame
     private javax.swing.JButton btnListWordsSave;
     private javax.swing.JButton btnListWordsShow;
     private javax.swing.JButton btnNewGame;
-    private javax.swing.JButton btnNewLangOK;
+    private javax.swing.JButton btnNewLangSave;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnPreGameBack;
     private javax.swing.JButton btnSettingsBack;
@@ -1486,8 +1551,6 @@ public class MainView extends javax.swing.JFrame
     private javax.swing.JComboBox comBoxTo3;
     private javax.swing.JEditorPane jEditorPane1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JLabel labelAddWord;
     private javax.swing.JLabel labelAddWordFromError;
     private javax.swing.JLabel labelAddWordToError;
     private javax.swing.JLabel labelCBDiff;
@@ -1501,14 +1564,12 @@ public class MainView extends javax.swing.JFrame
     private javax.swing.JLabel labelChBThreeChoices;
     private javax.swing.JLabel labelEndGame;
     private javax.swing.JTextArea labelFeedback;
-    private javax.swing.JLabel labelGame;
     private javax.swing.JLabel labelHelp;
     private javax.swing.JLabel labelHelpIcon;
     private javax.swing.JLabel labelHighscore;
-    private javax.swing.JLabel labelLangDiffSelect;
-    private javax.swing.JLabel labelListWords;
+    private javax.swing.JLabel labelHighscore1;
+    private javax.swing.JLabel labelHighscore2;
     private javax.swing.JLabel labelLogo;
-    private javax.swing.JLabel labelPreGame;
     private javax.swing.JLabel labelPreGame1;
     private javax.swing.JLabel labelPreGame2;
     private javax.swing.JLabel labelPreGame3;
@@ -1546,5 +1607,6 @@ public class MainView extends javax.swing.JFrame
     private javax.swing.JTextField txtFldAddWordNewLang;
     private javax.swing.JTextField txtFldAddWordTo;
     private javax.swing.JTextField txtFldAnswer;
+    private javax.swing.JTextPane txtPaneHighscore;
     // End of variables declaration//GEN-END:variables
-}
+} 

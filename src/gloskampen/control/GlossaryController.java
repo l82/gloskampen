@@ -14,11 +14,13 @@ import java.util.ArrayList;
  * This class is responsible for handling the control part of a glossary quiz.
  * @author lotta
  */
-public class GlossaryController 
+public class GlossaryController implements Callback
 {    
     private gloskampen.model.Glossary glossary;
     gloskampen.view.MainView mainView;    
     private Boolean writeWordSelf;
+    private Boolean timerStarted;
+    Timer timer;
     
     
     /**
@@ -30,6 +32,7 @@ public class GlossaryController
     {              
         mainView = inMainView;
         writeWordSelf = true;
+        timerStarted = false;
     }
        
     /**
@@ -44,6 +47,7 @@ public class GlossaryController
             public void actionPerformed(ActionEvent e)
             {
                 generateNewGame();
+                timerHandling();
             }
         }); 
         
@@ -293,4 +297,28 @@ public class GlossaryController
         newGlossary = getNewGlossary();
         return newGlossary;
     }    
+    
+    private void timerHandling() {
+        
+        if (timerStarted == false) {
+            timer = new Timer(20000, this);
+            timerStarted = true;
+            timer.start();
+        }
+        else {
+            timerStarted = false;
+            try {
+                timer.interrupt();
+                timer.join();
+            } 
+            catch (IllegalThreadStateException | InterruptedException itse) {
+                System.out.println("Error: " + itse.getMessage());
+            }
+        }
+    }
+    
+    @Override
+    public void callback() {
+        System.out.println("L8 callback");
+    }
 }

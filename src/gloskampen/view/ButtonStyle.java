@@ -19,15 +19,15 @@ import javax.swing.JPanel;
  */
 public class ButtonStyle 
 {    
-    private final Color colBtnBg;
-    private final Color colBtnTxt;
+    private final Color colBg;
+    private final Color colTxt;
     private final ArrayList<JPanel> panelList;
     
     
     public ButtonStyle(ArrayList<JPanel> panelList)
     {
-        colBtnBg = new Color(106,78,57); // 65,51,38    106,78,57
-        colBtnTxt = new Color(255,255,255);
+        colBg = new Color(106,78,57); // 65,51,38    106,78,57
+        colTxt = new Color(255,255,255);
         this.panelList = panelList;
         
         styleButtons();        
@@ -41,15 +41,15 @@ public class ButtonStyle
             Component[] c = pnl.getComponents();   
             
             for (int j = 0; j < c.length; j++)
-            {
+            {                
                 if (c[j] instanceof JButton)
                 {
                     JButton btn = (JButton)c[j];
-                    btn.setBackground(colBtnBg); 
-                    btn.setForeground(colBtnTxt);
+                    btn.setBackground(colBg); 
+                    btn.setForeground(colTxt);
                     btn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));                    
                     btn.setFocusPainted(false);                   
-                }
+                }                         
             }
         }       
     }
