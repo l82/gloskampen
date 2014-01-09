@@ -86,9 +86,20 @@ public class GlossaryController implements Callback
     }
     
     private void setGameSettings() {
+        Boolean moreThanOneTrial;
+        
+        moreThanOneTrial = mainView.isMoreOneTrial();
         writeWordSelf = mainView.isWriteWordSelected();
         glossary.setWriteWordSelf(writeWordSelf);
-        glossary.setNumberOfTrialsEachTest(3);
+        
+        if (moreThanOneTrial) {
+            glossary.setNumberOfTrialsEachTest(3);
+        }
+        else {
+            glossary.setNumberOfTrialsEachTest(1);
+        }
+        System.out.println("L8 game settings are: writeWordsSelf=" + writeWordSelf +
+                " moreThanOneTrial=" + moreThanOneTrial);
     }
     
     /**

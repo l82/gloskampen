@@ -1344,7 +1344,6 @@ public class MainView extends javax.swing.JFrame
     }
     
     /**
-     * L8
      * Checks if user want to write the words him/herself or if the user want to
      * select from a list of words
      * @return true if user want to write own word, else false
@@ -1364,7 +1363,23 @@ public class MainView extends javax.swing.JFrame
     }
     
     /**
-     * L8 
+     * L8
+     * Checks if user want to have more than one trial on each glossary
+     * @return true if user wants more than one trial 
+     */
+    public Boolean isMoreOneTrial() 
+    {
+        Boolean moreOneChoice;
+        if (chBoxThreeChoicesYes.isSelected()) {
+            moreOneChoice = true;
+        }
+        else {
+            moreOneChoice = false;
+        }
+        return moreOneChoice;
+    }
+    
+    /** 
      * Writes three alternatives in text field
      * @param wordAlternatives An arrayList with the alternatives
      */

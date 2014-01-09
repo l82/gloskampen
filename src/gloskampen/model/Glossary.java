@@ -149,7 +149,6 @@ public class Glossary {
             answerIsCorrect = false;
         }
         lastIsCorrect = answerIsCorrect;
-        System.out.println("L8 lastiscorrect " + lastIsCorrect);
         setResultData(answerIsCorrect);
         return correct;
     }
