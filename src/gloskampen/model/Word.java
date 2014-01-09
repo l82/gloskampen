@@ -17,7 +17,7 @@ public class Word
 {    
     private String language1;
     private String language2;
-    private Integer difficulty;
+    //L8 private Integer difficulty;
     private Boolean ok;
     private boolean answered;
     
@@ -30,15 +30,15 @@ public class Word
     }
     
     /**
-     * 
+     * L8 removed difficulty, ok and answered
      */
-    public Word(String language1, String language2, int difficulty){
+    public Word(String language1, String language2){
         if (this.validChars(language1) && this.validChars(language2)){
             this.language1 = language1;
             this.language2 = language2;
-            this.difficulty = difficulty;
-            this.ok = false;
-            this.answered = false; 
+            //L8 this.difficulty = difficulty;
+            //L8 this.ok = false;
+            //L8 this.answered = false; 
         }
         
     }
@@ -99,7 +99,7 @@ public class Word
     }
     
     /**
-     * 
+     *  
      * @return 
      */
     public boolean isWrong(){

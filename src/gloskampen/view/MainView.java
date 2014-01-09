@@ -1257,6 +1257,15 @@ public class MainView extends javax.swing.JFrame
     
     /**
      * L8
+     * Add a listener for three words alternative
+     * @param listener listener to add
+     */    
+    public void comBoxThreeWordsAddListener(ActionListener listener) 
+    {        
+        comBoxThreeWords.addActionListener(listener); 
+    }
+    
+    /**
      * Add a listener for end game that will ask for user
      * @param listener listener to add
      */
@@ -1306,12 +1315,13 @@ public class MainView extends javax.swing.JFrame
     }
     
     public void setErrorText(String errorMessage) 
-    {        
-        System.out.println("L8 setErrorText");
+    {   
+        
+        //System.out.println("L8 setErrorText " + errorMessage);
         labelFeedback.setOpaque(true);        
         labelFeedback.setForeground(Color.red); 
         labelFeedback.setText(errorMessage);
-                 
+
         // test
         scrPaneFeedback1.setVisible(true);
         scrPaneFeedback2.setVisible(true);
@@ -1335,6 +1345,16 @@ public class MainView extends javax.swing.JFrame
     public void setEmptyAnswer() 
     {        
         txtFldAnswer.setText("");        
+    }
+    
+    /**
+     * L8
+     * Fill in text in answer input field
+     * @param answer Text to fill in
+     */
+    public void setAnswerText(String answer)
+    {
+        txtFldAnswer.setText(answer);
     }
      
     public void setEndText(int total, int correct) 
@@ -1364,6 +1384,42 @@ public class MainView extends javax.swing.JFrame
     
     /**
      * L8
+     * Gets the text in selected alternative
+     * @return text for chosen alternative 
+     */
+    public String getWordText() {
+        return (String)comBoxThreeWords.getSelectedItem();
+    }
+    
+    /**
+     * L8
+     * Get chosen index for fromLanguage combo box
+     * @return chosen index 
+     */
+    public int getFromLanguage() {
+        return comBoxFrom1.getSelectedIndex();
+    }
+    
+    /**
+     * L8
+     * Get chosen index for toLanguage combo box
+     * @return chosen index 
+     */
+    public int getToLanguage() {
+        return comBoxTo1.getSelectedIndex();
+    }
+    
+     /**
+     * L8
+     * Get chosen level of test combo box
+     * @return chosen index 
+     */
+    //public int getLevel() {
+    //    return comBoxDiff.getSelectedIndex();
+    //}
+    
+    /**
+     * L8
      * Checks if user want to have more than one trial on each glossary
      * @return true if user wants more than one trial 
      */
@@ -1380,18 +1436,21 @@ public class MainView extends javax.swing.JFrame
     }
     
     /** 
-     * Writes three alternatives in text field
-     * @param wordAlternatives An arrayList with the alternatives
+     * L8
+     * Sets a word alternative
+     * @param word A string with word to add
      */
-    public void setWordAlternatives(ArrayList<String> wordAlternatives) 
+    public void setWordChoice(String word) 
     {
-        String tmpString;
-        tmpString = "";
-        for (int i = 0; i < wordAlternatives.size(); i++) 
-        {
-             tmpString = tmpString + ";" + wordAlternatives.get(i);
-        }
-        txtFldAnswer.setText(tmpString);
+        comBoxThreeWords.addItem(word);
+    }
+    
+    /**
+     * L8
+     * Empty combo box for three randomised words
+     */
+    public void emptyWordChoices() {
+        comBoxThreeWords.removeAllItems();
     }
     
     public void setEmptyEndText()
@@ -1409,6 +1468,14 @@ public class MainView extends javax.swing.JFrame
         scrPaneFeedback1.setVisible(false);
         scrPaneFeedback2.setVisible(false);
     }   
+    
+    /**
+     * L8 This should be removed-only for debugging
+     * 
+     */
+    public String getFeedbackText() {
+        return labelFeedback.getText();   
+    }
     
     private void btnNewGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewGameActionPerformed
         

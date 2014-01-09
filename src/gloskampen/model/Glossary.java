@@ -7,16 +7,17 @@
 package gloskampen.model;
 
 import java.util.ArrayList;
+import java.util.*;
 /**
  * This class is responsible to handle the quiz data
  * @author lotta
  */
 public class Glossary {
-    private int level;
     private int fromLanguage;
     private int toLanguage;
     private ArrayList<String> listOfAlreadyUsedWords;
     private String currentRightAnswer;
+    private String currentGlossary;
     private final int totNumberOfGlossaries;
     private ArrayList<String> listOfFailedWords;
     private int listFailedCounter;
@@ -25,8 +26,7 @@ public class Glossary {
     private int numberOfFailedGlossaries;
     private int numberOfTrialsEachTest;
     private int currentNumberOfTrials;
-    private Boolean writeWordSelf;
-    private static int totNumWordsInTest = 10;
+    private final static int totNumWordsInTest = 10;
     private Boolean lastIsCorrect;
     
     
@@ -40,7 +40,6 @@ public class Glossary {
         listOfFailedWords = new ArrayList<>();
         listOfAlreadyUsedWords = new ArrayList<>();
         currentNumberOfTrials = 1;
-        writeWordSelf = true;
         lastIsCorrect = false;
     }
     
@@ -58,15 +57,12 @@ public class Glossary {
         tmpBothWords = getRandomGlossary();
         randomisedGlossary = "";
         if (numberOfExecutedGlossaries < totNumWordsInTest) {
-            System.out.println("L8 still below 10 " + numberOfExecutedGlossaries);
             listOfAlreadyUsedWords.add(tmpBothWords);
             randomisedGlossary = getWordToTranslateFromGlossary(tmpBothWords);
         }
         else {
-             System.out.println("L8 should get one of the failed ones");
              tmpBothWords = listOfFailedWords.get(listFailedCounter);
              randomisedGlossary = getWordToTranslateFromGlossary(tmpBothWords);
-             System.out.println("L8 failed glossary " + randomisedGlossary);
              listFailedCounter++;
         }
         
@@ -79,6 +75,7 @@ public class Glossary {
         bothWords = wordPair.split(";");
         randomisedGlossary = bothWords[0];
         currentRightAnswer = bothWords[1];
+        currentGlossary = wordPair;
         return randomisedGlossary;
     }
     
@@ -187,17 +184,49 @@ public class Glossary {
     public ArrayList<String> randomiseThreeAlternatives() {
         ArrayList<String> randWords;
         String wordToAddNonSplitted, wordToAdd;
+        int i = 0;
         randWords = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
+        wordToAdd = getWordThatMustBeThere();
+        randWords.add(wordToAdd);
+        while (i < 2) {
             wordToAddNonSplitted = wordListToUse.getRandomWordL8();
             wordToAdd = getWordToTranslateToGlossary(wordToAddNonSplitted);
-            randWords.add(wordToAdd);
-        }            
-        int lastElement = listOfAlreadyUsedWords.size();
-        wordToAddNonSplitted = listOfAlreadyUsedWords.get(lastElement-1);
-        wordToAdd = getWordToTranslateToGlossary(wordToAddNonSplitted);
-        randWords.add(wordToAdd);
+            if (checkWordNotInList(randWords, wordToAdd)) {
+                randWords.add(wordToAdd);
+                i++;
+            }
+        } 
+        randWords = randList(randWords);
+        
         return randWords;
+    }
+    
+    private String getWordThatMustBeThere() {
+        String wordToAddNonSplitted, wordToAdd, wordToTest;
+        wordToAddNonSplitted = currentGlossary;
+        wordToAdd = getWordToTranslateToGlossary(wordToAddNonSplitted);
+        
+        return wordToAdd;
+    }
+    
+    private ArrayList<String> randList(ArrayList<String> listToRand) {
+
+        Collections.shuffle(listToRand);
+        return listToRand;
+    }
+    
+    private Boolean checkWordNotInList(ArrayList<String> randWords, String wordToAdd) {
+        String triedWord;
+        Boolean notUsed = true;
+        
+        for (int i = 0; i < randWords.size(); i++) {
+            triedWord = randWords.get(i);
+            if (wordToAdd.equals(triedWord)) {
+                notUsed = false;
+                break;
+            }
+        }
+        return notUsed;
     }
     
     /**
@@ -221,15 +250,13 @@ public class Glossary {
     }
     
     /**
-     * Set the two languages and level that should be used for the test
+     * Set the two languages that should be used for the test
      * @param from The language which should be translated from
      * @param to The language which should be translated to
-     * @param qLevel The level of the quiz
      */
-    public void setLanguagesAndLevel(int from, int to, int qLevel) {
+    public void setLanguages(int from, int to) {
         fromLanguage = from;
         toLanguage = to;
-        level = qLevel;
     }
     
     /**
@@ -241,7 +268,14 @@ public class Glossary {
     {
         Boolean end;
         end = false; //Intitiate to false and change only if should
+        System.out.println("L8 checkEndOfTest executed=" + numberOfExecutedGlossaries +
+                " tot=" + totNumberOfGlossaries + " failed=" + numberOfFailedGlossaries);
         if (numberOfExecutedGlossaries == (totNumberOfGlossaries + numberOfFailedGlossaries)) 
+        {
+            end = true;
+        }
+        //Never show wrong answers more than one extra time
+        if (numberOfExecutedGlossaries >= (totNumberOfGlossaries * 2)) 
         {
             end = true;
         }
@@ -275,6 +309,11 @@ public class Glossary {
     public void resetNumberOfFailedGlossaries() 
     {
         numberOfFailedGlossaries = 0;
+    }
+    
+    public void resetListFailedCounter()
+    {
+        listFailedCounter = 0;
     }
    
     /**
@@ -312,16 +351,6 @@ public class Glossary {
         return totNumberOfGlossaries;
     }
     
-    /**
-     * Sets to- and from language and level for quiz.
-     * @param inWriteWordSelf if word should be written or if it should be 
-     * selected from a list
-     */
-    public void setWriteWordSelf(Boolean inWriteWordSelf) 
-    {
-        writeWordSelf = inWriteWordSelf;
-    }
-    
     public void setNumberOfTrialsEachTest(int inNumberOfTrials) {
         numberOfTrialsEachTest = inNumberOfTrials;
     }
@@ -344,5 +373,14 @@ public class Glossary {
             newTrial = true;
         }      
         return newTrial;
+    }
+    
+    public void emptyListOfAlreadyUsedWords() {
+        listOfAlreadyUsedWords.clear();
+    }
+    
+    public void emptyListOfFailedWords() {
+        listOfFailedWords.clear();
+        System.out.println("L8 no failed words " + listOfFailedWords.size());
     }
 }

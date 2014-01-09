@@ -35,7 +35,7 @@ public class Timer extends Thread {
             sleep(timerDelay);
             endSleepFunction.callback();
 	} catch (InterruptedException | IllegalThreadStateException e) {
-            System.out.println("Error: " + e.getMessage());
+            //System.out.println("Error: " + e.getMessage());
         }
     }
 }

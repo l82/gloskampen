@@ -59,6 +59,7 @@ public class GlossaryController implements Callback
                checkAndGenerateNewGlossary();
                stopTimer();
                startTimer();
+               //System.out.println("L8 next " + mainView.getFeedbackText());
             }
         }); 
         
@@ -78,19 +79,28 @@ public class GlossaryController implements Callback
             {
                String user;
                user = mainView.getUser();
-               //user.checkAndAddUser(user)
+               stopTimer();
             }
         }); 
         
+        inMainView.comBoxThreeWordsAddListener(new ActionListener()
+         {                
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+               setTextFromComboAlternative();
+            }
+        }); 
+                
         glossary = new gloskampen.model.Glossary();
     }
     
     private void setGameSettings() {
         Boolean moreThanOneTrial;
+        int toLanguage, fromLanguage;
         
         moreThanOneTrial = mainView.isMoreOneTrial();
         writeWordSelf = mainView.isWriteWordSelected();
-        glossary.setWriteWordSelf(writeWordSelf);
         
         if (moreThanOneTrial) {
             glossary.setNumberOfTrialsEachTest(3);
@@ -98,8 +108,14 @@ public class GlossaryController implements Callback
         else {
             glossary.setNumberOfTrialsEachTest(1);
         }
+        
+        toLanguage = mainView.getToLanguage();
+        fromLanguage = mainView.getFromLanguage();
+        glossary.setLanguages(fromLanguage, toLanguage);
+        
         System.out.println("L8 game settings are: writeWordsSelf=" + writeWordSelf +
-                " moreThanOneTrial=" + moreThanOneTrial);
+                " moreThanOneTrial=" + moreThanOneTrial + " fromLanguage=" + 
+                fromLanguage + " toLanguage=" + toLanguage);
     }
     
     /**
@@ -166,14 +182,17 @@ public class GlossaryController implements Callback
     {
         int validAnswer; 
         String answer;
-       
+     
+        //System.out.println("L8 checkAndGenerateNewAnswer");
         answer = mainView.getAnswer();
         validAnswer = validateCorrectSyntaxAnswer(answer);
         
-        if (validAnswer >= 0) 
+        if (validAnswer >= 0) { 
             printAndFixNextStep(answer, false);
         }
-        
+        //System.out.println("L8 checkAndGenerateNewGlossary feedback " + mainView.getFeedbackText());
+    }     
+   
     private void printAndFixNextStep(String answer, Boolean timeout) 
     {
         String errorText;
@@ -197,10 +216,11 @@ public class GlossaryController implements Callback
                 startTimer();
                 errorText = "Tyvärr frågan timade ut. Försök igen";
             }
-            System.out.println("L8 should write error text " + errorText);
+            //System.out.println("L8 should write error text and new trial should be done" + errorText);
             mainView.setErrorText(errorText);
             mainView.setEmptyAnswer();
             continueWithNextGlossary = false;
+            //System.out.println("L8 should write error text and new trial should be done " + mainView.getFeedbackText());
         }
         else { //Answer is not ok but max number of trials are reached
             String currentRightAnswer = glossary.getCorrectAnswer();
@@ -211,18 +231,20 @@ public class GlossaryController implements Callback
                 errorText = "Tyvärr frågan timade ut.";
             }
             mainView.setErrorText(errorText);
+            //System.out.println("L8 Answer is not ok but max number of trials are reached " + mainView.getFeedbackText());
             mainView.setEmptyAnswer();
             continueWithNextGlossary = true;
             glossary.resetCurrentNumberOfTrials();
         }
            
         if (continueWithNextGlossary) {
-            System.out.println("L8 should not be here if next glossary should not be shown");
             printDataForNextStep();
         }
+        //System.out.println("L8 feedback " + mainView.getFeedbackText());
     }
     
     private void printDataForNextStep() {
+        
         if (glossary.checkEndOfTest()) {
             mainView.setEndText(glossary.getTotNumberOfGlossaries(), 
                 (glossary.getTotNumberOfGlossaries() - glossary.getNumberOfFailedGlossaries()));
@@ -236,13 +258,28 @@ public class GlossaryController implements Callback
             newGlossary = generateNewGlossary();
             mainView.setGlossaryNumber(glossaryNumber);
             mainView.setNewGlossary(newGlossary); 
-                
+            
+            removeWordChoices();
             if (writeWordSelf != true) {
-                ArrayList<String> threeWords;
-                threeWords = glossary.randomiseThreeAlternatives();
-                mainView.setWordAlternatives(threeWords);
+                setWordChoices();
             }
          }
+    }
+    
+    private void setWordChoices() {
+        ArrayList<String> wordAlternatives;
+        wordAlternatives = glossary.randomiseThreeAlternatives();
+        for (int i = 0; i < wordAlternatives.size(); i++) 
+        {
+            mainView.setWordChoice(wordAlternatives.get(i));
+        }
+    }
+    
+    private void removeWordChoices() 
+    {
+        if (!writeWordSelf) {
+            mainView.emptyWordChoices();
+        }
     }
     
     private void printOkMessage() {
@@ -297,8 +334,7 @@ public class GlossaryController implements Callback
     private void generateNewGame() 
     {
         resetFieldsAndValues();
-        
-        ArrayList<String> threeWords;
+
         int numberOfExecutedGlossaries;
         String newGlossary;
         newGlossary = generateNewGlossary();
@@ -307,19 +343,22 @@ public class GlossaryController implements Callback
         mainView.setNewGlossary(newGlossary);
         if (writeWordSelf != true) 
         {
-            threeWords = glossary.randomiseThreeAlternatives();
-            mainView.setWordAlternatives(threeWords);
+            setWordChoices();
         }
     }
         
     private void resetFieldsAndValues()
     {       
         glossary.resetNumberOfFailedGlossaries();
-        glossary.resetNumberOfExecutedGlossaries();     
-        glossary.resetCurrentNumberOfTrials(); //L8 fixed
+        glossary.resetListFailedCounter();
+        glossary.resetNumberOfExecutedGlossaries();    
+        glossary.resetCurrentNumberOfTrials();
+        glossary.emptyListOfFailedWords();
+        glossary.emptyListOfAlreadyUsedWords();
         mainView.enableAnswerButton();
         mainView.setEmptyEndText();
         mainView.setEmptyFeedbackText();     
+        mainView.emptyWordChoices();
     }    
 
     private String generateNewGlossary() 
@@ -331,7 +370,6 @@ public class GlossaryController implements Callback
     
     private void startTimer() {
         
-        System.out.println("L8 start timer");
         if (timerStarted == false) {
             timer = new Timer(20000, this);
             timerStarted = true;
@@ -344,7 +382,6 @@ public class GlossaryController implements Callback
     
     private void stopTimer() {
         
-        System.out.println("L8 stop timer");
         if (timerStarted == true) {
             timerStarted = false;
             try {
@@ -352,7 +389,7 @@ public class GlossaryController implements Callback
                 timer.join();
             } 
             catch (IllegalThreadStateException | InterruptedException itse) {
-                System.out.println("Error: " + itse.getMessage());
+                System.out.println("Error in glossaryController: " + itse.getMessage());
             }
         }
         else {
@@ -364,9 +401,14 @@ public class GlossaryController implements Callback
     public void callback() {
         String enteredChars;
         
-        System.out.println("L8 callback");
         stopTimer();
         enteredChars = mainView.getAnswer();
         printAndFixNextStep(enteredChars, true);
+    }
+    
+    private void  setTextFromComboAlternative() {
+        String answer;
+        answer = mainView.getWordText();
+        mainView.setAnswerText(answer);
     }
 }

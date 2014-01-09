@@ -41,12 +41,12 @@ public class WordList
     }
     
     /**
-     * 
+     * L8
      */
-    private void add(String wordOne, String wordTwo, int difficulty)
+    private void add(String wordOne, String wordTwo)
     {
         //Word tempWord = new Word(lang1, lang2, diff);
-        words.add( new Word(wordOne.toLowerCase(), wordTwo.toLowerCase(), difficulty) );
+        words.add( new Word(wordOne.toLowerCase(), wordTwo.toLowerCase()) );
     }
     
     /**
@@ -134,21 +134,21 @@ public class WordList
      public void initiateTestWords() {
     
         System.out.println("WrodList: initiateTestWords");
-        add("bil", "car", 1);
-        add("husvagn", "caravan", 2);
-        add("olycka", "accident", 3);
-        add("spel", "game", 1);
-        add("mun", "mouth", 1);
-        add("axel", "shoulder", 2);
-        add("ansikte", "face", 2);
-        add("gurka", "cucumber", 3);
-        add("jordgubbe", "strawberry", 2);
-        add("sommar", "summer", 2);
-        add("jul", "Christmas", 2);
-        add("dra", "pull", 3);
-        add("finger", "finger", 2);
-        add("byxor", "trousers", 2);
-        add("gris", "pig", 1);
+        add("bil", "car"); //L8 removed level
+        add("husvagn", "caravan");
+        add("olycka", "accident");
+        add("spel", "game");
+        add("mun", "mouth");
+        add("axel", "shoulder");
+        add("ansikte", "face");
+        add("gurka", "cucumber");
+        add("jordgubbe", "strawberry");
+        add("sommar", "summer");
+        add("jul", "Christmas");
+        add("dra", "pull");
+        add("finger", "finger");
+        add("byxor", "trousers");
+        add("gris", "pig");
     }
     
     public void tearDownTestWords() {
