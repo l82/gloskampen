@@ -9,19 +9,21 @@ package gloskampen.control;
 import static java.lang.Thread.sleep;
 
 /**
- * The timer object. Draws the clock at certain intervals
- * @author lotta
+ * The timer class. This class is responsible to run a timer thread
+ * @author Lotta Hagborg
  */
 
 public class Timer extends Thread {
     
+    /** Time that the thread should be running */
     private final int timerDelay;
-    private Boolean timeout;
-    private Callback endSleepFunction; 
+    /** Callback function to call when timerDelay has elapsed */
+    private final Callback endSleepFunction; 
     
     /**
-     * Sleeps and draws the clock at certain times
+     * Sleeps the delay time and calls the callback function when finished
      * @param delay How long to sleep before returning
+     * @param functionCallback to use as callback function
      */
     public Timer(int delay, Callback functionCallback) {
 	super();
@@ -34,8 +36,10 @@ public class Timer extends Thread {
         try {
             sleep(timerDelay);
             endSleepFunction.callback();
-	} catch (InterruptedException | IllegalThreadStateException e) {
-            //System.out.println("Error: " + e.getMessage());
+	} catch (InterruptedException e) {
+            //Do nothing
+        } catch (IllegalThreadStateException e) {
+            System.out.println("Error: " + e.getMessage());
         }
     }
 }

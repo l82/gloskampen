@@ -7,9 +7,9 @@
 package gloskampen.control;
 
 /**
- *
- * @author lotta
+ * An interface for a callback function
+ * @author Lotta Hagborg
  */
 public interface Callback  {
-    void callback();//would be in any signature
+    void callback();  //Callback function
 }
