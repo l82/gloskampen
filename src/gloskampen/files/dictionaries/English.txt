@@ -1,6 +1,0 @@
-Boat:Båt
-Tree:Träd
-Wheel:Hjul
-Car:Bil
-Computer:Dator
-Floor:Golv
